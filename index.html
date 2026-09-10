@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>রচনা সম্ভার - বাংলাদেশের পর্যটন শিল্প</title>
+  <title>রচনা সম্ভার</title>
   <style>
     * {
       box-sizing: border-box;
@@ -15,6 +15,54 @@
     body {
       background-color: #f3f4f6;
       color: #1f2937;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* Dark Mode Styles */
+    body.dark-mode {
+      background-color: #111827;
+      color: #f3f4f6;
+    }
+
+    body.dark-mode .sidebar,
+    body.dark-mode .mobile-header,
+    body.dark-mode .essay-card {
+      background-color: #1f2937;
+      border-color: #374151;
+      color: #f3f4f6;
+    }
+
+    body.dark-mode .menu-item {
+      color: #d1d5db;
+    }
+
+    body.dark-mode .menu-item:hover,
+    body.dark-mode .menu-item.active {
+      background-color: #115e59;
+      color: #ffffff;
+    }
+
+    body.dark-mode .point-card {
+      background-color: #374151;
+      color: #f3f4f6;
+    }
+
+    body.dark-mode .point-header h2,
+    body.dark-mode .breadcrumb,
+    body.dark-mode .point-card p {
+      color: #f3f4f6;
+    }
+
+    body.dark-mode .action-btn {
+      background-color: #374151;
+      color: #f3f4f6;
+      border-color: #4b5563;
+    }
+
+    body.dark-mode .search-box input {
+      background-color: #374151;
+      color: #ffffff;
+      border-color: #4b5563;
     }
 
     .app-container {
@@ -333,56 +381,139 @@
         </div>
 
         <!-- Featured Header Quote -->
-        <div class="quote-box featured-quote">
+        <div class="quote-box featured-quote" id="header-quote">
           <p>"এমন দেশটি কোথাও খুঁজে পাবে নাকো তুমি, সকল রানীর দেশ সে যে- আমার জন্মভূমি" — <em>দ্বিজেন্দ্রলাল রায়</em></p>
         </div>
 
-        <!-- Section Points -->
+        <!-- Section Points Container -->
         <div class="points-container" id="points-container">
-          
-          <section class="point-card">
-            <div class="point-header">
-              <span class="point-badge">পয়েন্ট ১</span>
-              <h2>সূচনা</h2>
-            </div>
-            <p>সুজলা-সুফলা, শস্য-শ্যামলা আমাদের এই বাংলাদেশ অপার প্রাকৃতিক সৌন্দর্যের এক অনন্য লীলাভূমি। নদীমাতৃক এই দেশের কোণে কোণে ছড়িয়ে আছে রূপের অপরূপ বৈচিত্র্য, যা আবহমানকাল ধরে দেশি-বিদেশি ভ্রমণপিপাসুদের আকর্ষিত করে আসছে। সবুজ-শ্যামল প্রান্তর, পাহাড়ী ঝরনা, সুরম্য সমুদ্র সৈকত আর বিশ্বের অন্যতম সেরা ম্যানগ্রোভ বনের ছোঁয়া নিয়ে আমাদের বাংলাদেশ পর্যটনের এক আদর্শ সম্ভাবনাময় কেন্দ্র।</p>
-            <div class="quote-box section-quote">
-              <p>"রূপসী বাংলার রূপ দেখিয়াছি আমি, তাই আমি পৃথিবীর রূপ খুঁজিতে যাই না আর" — <em>জীবনানন্দ দাশ</em></p>
-            </div>
-          </section>
-
-          <section class="point-card">
-            <div class="point-header">
-              <span class="point-badge">পয়েন্ট ২</span>
-              <h2>পর্যটন শিল্পের ধারণা</h2>
-            </div>
-            <p>পর্যটন মূলত মানুষের নতুনকে জানার, অদেখাকে দেখার এবং মানসিক বিনোদন লাভের একটি সার্বজনীন মাধ্যম। যখন ভ্রমণকে কেন্দ্র করে হোটেল, রেস্তোরাঁ, যাতায়াত, বিনোদন পার্ক এবং গাইড পরিষেবার মতো বিভিন্ন বাণিজ্যিক খাত একসঙ্গে গড়ে ওঠে, তখন তাকে পর্যটন শিল্প বলা হয়। বিশ্ব অর্থনীতিতে এই শিল্প এখন অন্যতম দ্রুত বর্ধনশীল এবং লাভজনক একটি খাত হিসেবে বিবেচিত।</p>
-          </section>
-
-          <section class="point-card">
-            <div class="point-header">
-              <span class="point-badge">পয়েন্ট ৩</span>
-              <h2>পরিবেশ ও নিরাপত্তা</h2>
-            </div>
-            <p>পর্যটন শিল্পের প্রসারের সাথে সাথে প্রাকৃতিক ভারসাম্য রক্ষা ও পর্যটকদের নিরাপত্তা প্রদান অপরিহার্য। পরিবেশ বান্ধব পর্যটন গড়ে তোলার মাধ্যমেই এই শিল্পের টেকসই উন্নয়ন সম্ভব।</p>
-            <div class="quote-box section-quote">
-              <p>"প্রকৃতিকে ভালোবাসুন, সৌন্দর্য উপভোগ করুন, পরিবেশ রক্ষা করুন!"</p>
-            </div>
-          </section>
-
+          <!-- Dynamic Content Loads Here -->
         </div>
       </article>
     </main>
   </div>
 
   <script>
-    // Correct Bangla Digit Converter
+    // Bangla Digit Converter
     function toBanglaNum(num) {
       const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
       return num.toString().replace(/\d/g, digit => banglaDigits[digit]);
     }
 
-    // Mobile Side Panel Controls
+    // Essay Database
+    const essays = [
+      {
+        id: 1,
+        title: 'বাংলাদেশের পর্যটন শিল্প',
+        headerQuote: '"এমন দেশটি কোথাও খুঁজে পাবে নাকো তুমি, সকল রানীর দেশ সে যে- আমার জন্মভূমি" — <em>দ্বিজেন্দ্রলাল রায়</em>',
+        points: [
+          {
+            title: 'সূচনা',
+            content: 'সুজলা-সুফলা, শস্য-শ্যামলা আমাদের এই বাংলাদেশ অপার প্রাকৃতিক সৌন্দর্যের এক অনন্য লীলাভূমি। নদীমাতৃক এই দেশের কোণে কোণে ছড়িয়ে আছে রূপের অপরূপ বৈচিত্র্য, যা আবহমানকাল ধরে দেশি-বিদেশি ভ্রমণপিপাসুদের আকর্ষিত করে আসছে।',
+            quote: '"রূপসী বাংলার রূপ দেখিয়াছি আমি, তাই আমি পৃথিবীর রূপ খুঁজিতে যাই না আর" — <em>জীবনানন্দ দাশ</em>'
+          },
+          {
+            title: 'পর্যটন শিল্পের ধারণা',
+            content: 'পর্যটন মূলত মানুষের নতুনকে জানার, অদেখাকে দেখার এবং মানসিক বিনোদন লাভের একটি সার্বজনীন মাধ্যম। যখন ভ্রমণকে কেন্দ্র করে হোটেল, রেস্তোরাঁ, যাতায়াত ও বিনোদন পার্ক গড়ে ওঠে, তাকে পর্যটন শিল্প বলা হয়।'
+          },
+          {
+            title: 'পরিবেশ ও নিরাপত্তা',
+            content: 'পর্যটন শিল্পের প্রসারের সাথে সাথে প্রাকৃতিক ভারসাম্য রক্ষা ও পর্যটকদের নিরাপত্তা প্রদান অপরিহার্য। পরিবেশ বান্ধব পর্যটন গড়ে তোলার মাধ্যমেই এই শিল্পের টেকসই উন্নয়ন সম্ভব।',
+            quote: '"প্রকৃতিকে ভালোবাসুন, সৌন্দর্য উপভোগ করুন, পরিবেশ রক্ষা করুন!"'
+          }
+        ]
+      },
+      {
+        id: 2,
+        title: 'বাংলাদেশের উৎসব',
+        headerQuote: '"নানা জাতির নানা মত, নানা পরিধান, বিবিধের মাঝে দেখ মিলন মহান।"'
+      },
+      { id: 3, title: 'জগদীশচন্দ্র বসু' },
+      { id: 4, title: 'রোকেয়া সাখাওয়াত হোসেন' },
+      { id: 5, title: 'লঙ্কা ভ্রমণের অভিজ্ঞতা' },
+      { id: 6, title: 'একটি ঝড়ের রাত' },
+      { id: 7, title: 'কৃষি উদ্যোক্তা' },
+      { id: 8, title: 'ভাষা আন্দোলন' },
+      { id: 9, title: 'বাংলাদেশের মুক্তিযুদ্ধ' },
+      { id: 10, title: 'সময়ানুবর্তিতা' },
+      { id: 11, title: 'ক্রিকেট বাংলাদেশ' },
+      { id: 12, title: 'বাংলাদেশের ফুটবল' },
+      { id: 13, title: 'কৃষিকাজে বিজ্ঞান' },
+      { id: 14, title: 'মাদকাসক্তি ও এর প্রতিকার' }
+    ];
+
+    let activeEssayId = 1;
+
+    // Load Essay Content
+    function loadEssay(id) {
+      activeEssayId = id;
+      const essay = essays.find(e => e.id === id) || essays[0];
+      const banglaId = toBanglaNum(essay.id);
+
+      document.getElementById('essay-title').innerText = `${banglaId}. ${essay.title}`;
+      document.getElementById('current-title-breadcrumb').innerText = `${banglaId}. ${essay.title}`;
+      document.getElementById('essay-number').innerText = banglaId;
+      
+      const pointCount = essay.points ? essay.points.length : 15;
+      document.getElementById('total-points').innerText = `${toBanglaNum(pointCount)} টি`;
+
+      document.getElementById('header-quote').innerHTML = `<p>${essay.headerQuote || '"জ্ঞানই শক্তি"'}</p>`;
+
+      const pointsContainer = document.getElementById('points-container');
+      if (essay.points && essay.points.length > 0) {
+        pointsContainer.innerHTML = essay.points.map((p, index) => `
+          <section class="point-card">
+            <div class="point-header">
+              <span class="point-badge">পয়েন্ট ${toBanglaNum(index + 1)}</span>
+              <h2>${p.title}</h2>
+            </div>
+            <p>${p.content}</p>
+            ${p.quote ? `<div class="quote-box section-quote"><p>${p.quote}</p></div>` : ''}
+          </section>
+        `).join('');
+      } else {
+        pointsContainer.innerHTML = `
+          <section class="point-card">
+            <div class="point-header">
+              <span class="point-badge">পয়েন্ট ১</span>
+              <h2>সূচনা</h2>
+            </div>
+            <p>${essay.title} সম্পর্কিত বিস্তারিত মূল বিষয়বস্তু শীঘ্রই হালনাগাদ করা হবে।</p>
+          </section>
+        `;
+      }
+
+      renderSidebar();
+    }
+
+    // Render Sidebar Menu
+    function renderSidebar(filterText = '') {
+      const sidebarMenu = document.getElementById('essay-list');
+      if (!sidebarMenu) return;
+
+      const filteredEssays = essays.filter(e => e.title.includes(filterText));
+
+      sidebarMenu.innerHTML = filteredEssays.map((essay) => {
+        const banglaIndex = toBanglaNum(essay.id);
+        const pointCount = essay.points ? essay.points.length : 15;
+        const banglaPoints = toBanglaNum(pointCount);
+        const isActive = essay.id === activeEssayId ? 'active' : '';
+
+        return `
+          <div class="menu-item ${isActive}" onclick="selectEssay(${essay.id})">
+            <span>${banglaIndex}. ${essay.title}</span>
+            <span class="badge">${banglaPoints} পয়েন্ট</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectEssay(id) {
+      loadEssay(id);
+      closeMobileSidebar();
+    }
+
+    // Mobile Navigation Controls
     const menuToggle = document.getElementById('menu-toggle');
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
@@ -392,9 +523,6 @@
       overlay.classList.toggle('active');
     }
 
-    if (menuToggle) menuToggle.addEventListener('click', toggleSidebar);
-    if (overlay) overlay.addEventListener('click', toggleSidebar);
-
     function closeMobileSidebar() {
       if (window.innerWidth <= 768) {
         sidebar.classList.remove('active');
@@ -402,44 +530,36 @@
       }
     }
 
-    // List of Essays
-    const essays = [
-      { id: 1, title: 'বাংলাদেশের পর্যটন শিল্প', points: 15 },
-      { id: 2, title: 'বাংলাদেশের উৎসব', points: 15 },
-      { id: 3, title: 'জগদীশচন্দ্র বসু', points: 15 },
-      { id: 4, title: 'রোকেয়া সাখাওয়াত হোসেন', points: 15 },
-      { id: 5, title: 'লঙ্ক ভ্রমণের অভিজ্ঞতা', points: 15 },
-      { id: 6, title: 'একটি ঝড়ের রাত', points: 15 },
-      { id: 7, title: 'কৃষি উদ্যোক্তা', points: 15 },
-      { id: 8, title: 'ভাষা আন্দোলন', points: 15 },
-      { id: 9, title: 'বাংলাদেশের মুক্তিযুদ্ধ', points: 15 },
-      { id: 10, title: 'সময়ানুবর্তিতা', points: 15 },
-      { id: 11, title: 'ক্রিকেট বাংলাদেশ', points: 15 },
-      { id: 12, title: 'বাংলাদেশের ফুটবল', points: 15 },
-      { id: 13, title: 'কৃষিকাজে বিজ্ঞান', points: 15 },
-      { id: 14, title: 'মাদকাসক্তি ও এর প্রতিকার', points: 15 }
-    ];
+    menuToggle.addEventListener('click', toggleSidebar);
+    overlay.addEventListener('click', toggleSidebar);
 
-    // Render Sidebar Menu
-    function renderSidebar() {
-      const sidebarMenu = document.getElementById('essay-list');
-      if (!sidebarMenu) return;
+    // Dark Mode Toggle
+    document.getElementById('theme-btn').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
 
-      sidebarMenu.innerHTML = essays.map((essay) => {
-        const banglaIndex = toBanglaNum(essay.id);
-        const banglaPoints = toBanglaNum(essay.points);
-        const isActive = essay.id === 1 ? 'active' : '';
+    // Copy Content Button
+    document.getElementById('copy-btn').addEventListener('click', () => {
+      const text = document.querySelector('.essay-card').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('লেখা কপি হয়েছে!');
+      });
+    });
 
-        return `
-          <a class="menu-item ${isActive}" href="#" onclick="closeMobileSidebar()">
-            <span>${banglaIndex}. ${essay.title}</span>
-            <span class="badge">${banglaPoints} পয়েন্ট</span>
-          </a>
-        `;
-      }).join('');
-    }
+    // Print Button
+    document.getElementById('print-btn').addEventListener('click', () => {
+      window.print();
+    });
 
-    document.addEventListener('DOMContentLoaded', renderSidebar);
+    // Search Filtering
+    document.getElementById('search-input').addEventListener('input', (e) => {
+      renderSidebar(e.target.value);
+    });
+
+    // Initialize Page
+    document.addEventListener('DOMContentLoaded', () => {
+      loadEssay(1);
+    });
   </script>
 </body>
 </html>
