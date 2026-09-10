@@ -3,257 +3,480 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>বাংলা রচনা সংগ্রহ | Bengali Essay Collection</title>
-    <!-- Google Fonts for Bengali and English Typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Bengali:wght@400;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>বাংলা রচনা সম্ভার | Premium Bengali Essay Collection</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #0d9488 0%, #4f46e5 100%);
-            --secondary-color: #4f46e5;
-            --accent-color: #f59e0b;
-            --bg-color: #f1f5f9;
-            --card-bg: #ffffff;
-            --text-color: #0f172a;
-            --border-color: #cbd5e1;
+            --bg-main: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --accent-glow: linear-gradient(135deg, #06b6d4, #3b82f6);
+            --text-title: #f8fafc;
+            --text-body: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --quote-bg: rgba(99, 102, 241, 0.1);
+            --quote-border: #6366f1;
+            --font-size-base: 18px;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.2s, border-color 0.2s;
         }
 
         body {
-            font-family: 'Noto Serif Bengali', serif;
+            font-family: 'Hind Siliguri', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.8;
+            background-color: var(--bg-main);
+            color: var(--text-body);
+            line-height: 1.9;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
 
-        header {
+        /* Top Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
             background: var(--primary-gradient);
-            color: #ffffff;
-            padding: 35px 20px;
-            text-align: center;
-            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.3);
+            width: 0%;
         }
 
-        header h1 {
+        /* Header */
+        header {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 20px 0;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--primary-gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+        }
+
+        .brand-text h1 {
             margin: 0;
-            font-size: 36px;
+            font-size: 26px;
+            color: var(--text-title);
             font-weight: 700;
-            letter-spacing: 0.5px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
 
-        header p {
-            margin: 10px 0 0 0;
-            font-size: 18px;
-            opacity: 0.95;
+        .brand-text p {
+            margin: 0;
+            font-size: 14px;
+            color: var(--text-muted);
         }
 
+        /* Main Container */
         .container {
             display: flex;
-            max-width: 1200px;
+            max-width: 1250px;
             margin: 30px auto;
-            gap: 25px;
+            gap: 30px;
             padding: 0 20px;
             flex: 1;
+            width: 100%;
         }
 
-        /* Sidebar Styles */
+        /* Sidebar */
         .sidebar {
-            width: 320px;
-            background: var(--card-bg);
-            padding: 24px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            width: 340px;
+            background: var(--bg-card);
             border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 24px;
             height: fit-content;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: sticky;
+            top: 100px;
         }
 
-        .sidebar h3 {
-            border-bottom: 3px solid #0d9488;
-            padding-bottom: 12px;
-            color: #0d9488;
-            margin-top: 0;
-            font-size: 20px;
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-title);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge {
+            background: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px 12px 42px;
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            color: var(--text-title);
+            font-family: inherit;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .search-box input:focus {
+            border-color: #6366f1;
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
         }
 
         .rochona-list {
             list-style: none;
             padding: 0;
             margin: 0;
-        }
-
-        .rochona-list li {
-            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .rochona-list button {
             width: 100%;
             text-align: left;
             padding: 14px 18px;
-            background: #f8fafc;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--border-color);
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             font-size: 16px;
-            font-family: 'Noto Serif Bengali', serif;
-            transition: all 0.3s ease;
-            color: var(--text-color);
+            font-family: 'Hind Siliguri', sans-serif;
+            color: var(--text-body);
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .rochona-list button:hover {
-            background: #e2e8f0;
-            transform: translateY(-2px);
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(4px);
         }
 
         .rochona-list button.active {
             background: var(--primary-gradient);
             color: #ffffff;
-            border: none;
-            box-shadow: 0 4px 15px rgba(13, 148, 136, 0.4);
+            border-color: transparent;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
         }
 
-        /* Content Styles */
-        .content {
+        .rochona-list button.active i {
+            transform: translateX(3px);
+        }
+
+        /* Content Area */
+        .content-card {
             flex: 1;
-            background: var(--card-bg);
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
             padding: 45px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            min-width: 0;
+        }
+
+        /* Essay Toolbar */
+        .essay-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .read-time {
+            font-size: 14px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .font-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-main);
+            padding: 4px 8px;
+            border-radius: 10px;
             border: 1px solid var(--border-color);
         }
 
+        .font-controls button {
+            background: transparent;
+            border: none;
+            color: var(--text-title);
+            cursor: pointer;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .font-controls button:hover {
+            background: var(--bg-card-hover);
+        }
+
+        /* Article Styling */
         .essay {
             display: none;
-            animation: fadeIn 0.4s ease-in-out;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .essay.active {
             display: block;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .essay h1 {
-            text-align: center;
-            color: #0d9488;
-            font-size: 38px;
+            font-size: 36px;
+            color: var(--text-title);
             margin-top: 0;
-            margin-bottom: 30px;
-            border-bottom: 2px dashed var(--border-color);
-            padding-bottom: 15px;
+            margin-bottom: 35px;
+            font-weight: 700;
+            text-align: center;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .essay h3 {
-            color: #4f46e5;
-            margin-top: 32px;
+            color: #818cf8;
             font-size: 22px;
-            border-left: 5px solid #0d9488;
-            padding-left: 12px;
-            background: rgba(13, 148, 136, 0.08);
-            padding-top: 6px;
-            padding-bottom: 6px;
-            border-radius: 0 8px 8px 0;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 8px;
         }
 
         .essay p {
-            font-size: 18px;
+            font-size: var(--font-size-base);
+            color: var(--text-body);
             text-align: justify;
-            margin-bottom: 16px;
-            color: var(--text-color);
+            margin-bottom: 18px;
+            word-break: break-word;
         }
 
+        /* Quotes */
         .quote {
-            background: rgba(245, 158, 11, 0.1);
-            border-left: 5px solid var(--accent-color);
-            padding: 18px 24px;
+            background: var(--quote-bg);
+            border-left: 4px solid var(--quote-border);
+            padding: 20px 24px;
             margin: 25px 0;
-            font-style: italic;
-            font-size: 19px;
-            color: var(--text-color);
-            border-radius: 0 12px 12px 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            border-radius: 0 16px 16px 0;
+            position: relative;
         }
-        
+
+        .quote p {
+            margin: 0;
+            font-style: italic;
+            font-size: calc(var(--font-size-base) + 1px);
+            color: #e2e8f0;
+        }
+
         .quote strong {
             display: block;
             margin-top: 10px;
-            font-size: 16px;
-            color: #d97706;
+            font-size: 15px;
+            color: #a855f7;
             font-style: normal;
+            font-weight: 600;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 20px;
-            background: #0f172a;
-            color: #94a3b8;
+            padding: 25px;
+            background: rgba(15, 23, 42, 0.9);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 15px;
-            font-family: 'Poppins', sans-serif;
-            margin-top: 40px;
-        }
-
-        footer span {
-            color: #f43f5e;
+            margin-top: 50px;
         }
 
         footer strong {
-            color: #f8fafc;
+            color: #f43f5e;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* Mobile Responsive */
+        @media (max-width: 900px) {
             .container {
                 flex-direction: column;
             }
             .sidebar {
-                width: auto;
+                width: 100%;
+                position: relative;
+                top: 0;
             }
-            .content {
+            .content-card {
                 padding: 25px;
+            }
+            .essay h1 {
+                font-size: 28px;
             }
         }
     </style>
 </head>
 <body>
 
+    <!-- Reading Progress Bar -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Header -->
     <header>
-        <h1>📚 বাংলা রচনা সংগ্রহ</h1>
-        <p>শিক্ষার্থীদের জন্য মানসম্মত প্রবন্ধ ও রচনার ভাণ্ডার</p>
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                <div class="brand-text">
+                    <h1>বাংলা রচনা সম্ভার</h1>
+                    <p>শিক্ষার্থীদের জন্য মানসম্মত ও সমৃদ্ধ প্রবন্ধ সমগ্র</p>
+                </div>
+            </div>
+        </div>
     </header>
 
+    <!-- Main Content Container -->
     <div class="container">
-        <!-- Sidebar for selecting Rochonas -->
-        <div class="sidebar">
-            <h3>রচনার তালিকা</h3>
-            <ul class="rochona-list">
-                <li><button class="active" onclick="showRochona('essay-krishi', this)">কৃষিকাজে বিজ্ঞান</button></li>
-                <li><button onclick="showRochona('essay-somoyanubortita', this)">সময়ানুবর্তিতা</button></li>
-                <li><button onclick="showRochona('essay-madokashokti', this)">মাদকাসক্তি: কারণ, প্রভাব ও সমাধান</button></li>
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    <i class="fa-solid fa-list-ul"></i> সূচিপত্র
+                </div>
+                <span class="badge" id="essayCount">৩ টি রচনা</span>
+            </div>
+
+            <!-- Search Box -->
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="রচনা খুঁজুন..." onkeyup="filterEssays()">
+            </div>
+
+            <ul class="rochona-list" id="rochonaList">
+                <li>
+                    <button class="active" onclick="showRochona('essay-krishi', this)">
+                        <span><i class="fa-solid fa-wheat-awn me-2"></i> কৃষিকাজে বিজ্ঞান</span>
+                        <i class="fa-solid fa-chevron-right icon-arrow"></i>
+                    </button>
+                </li>
+                <li>
+                    <button onclick="showRochona('essay-somoyanubortita', this)">
+                        <span><i class="fa-solid fa-clock me-2"></i> সময়ানুবর্তিতা</span>
+                        <i class="fa-solid fa-chevron-right icon-arrow"></i>
+                    </button>
+                </li>
+                <li>
+                    <button onclick="showRochona('essay-madokashokti', this)">
+                        <span><i class="fa-solid fa-triangle-exclamation me-2"></i> মাদকাসক্তি: কারণ ও সমাধান</span>
+                        <i class="fa-solid fa-chevron-right icon-arrow"></i>
+                    </button>
+                </li>
             </ul>
-        </div>
+        </aside>
 
-        <!-- Main Content Area where Rochonas will be displayed -->
-        <div class="content">
+        <!-- Main Essay Reader -->
+        <main class="content-card">
+            
+            <!-- Essay Toolbar -->
+            <div class="essay-toolbar">
+                <div class="read-time">
+                    <i class="fa-regular fa-clock"></i> আনুমানিক পাঠ সময়: <span id="timeEstimate">৫ মিনিট</span>
+                </div>
+                <div class="font-controls">
+                    <button onclick="changeFontSize(-1)" title="ফন্ট ছোট করুন">A-</button>
+                    <button onclick="changeFontSize(1)" title="ফন্ট বড় করুন">A+</button>
+                </div>
+            </div>
 
-            <!-- ============================================== -->
             <!-- ESSAY 1: কৃষিকাজে বিজ্ঞান -->
-            <!-- ============================================== -->
             <article id="essay-krishi" class="essay active">
                 <h1>কৃষিকাজে বিজ্ঞান</h1>
 
                 <h3>১. ভূমিকা</h3>
                 <p>মানব সভ্যতার উন্মেষ ঘটেছিল মূলত কৃষিকাজের মাধ্যমেই। আদিম মানুষ যখন যাযাবর জীবন ত্যাগ করে ফসল ফলাতে শিখল, তখনই শুরু হলো মানব সভ্যতার আসল জয়যাত্রা। কিন্তু প্রকৃতির খেয়ালখুশির ওপর নির্ভরশীল সেই আদিম কৃষিব্যবস্থা আজ আর নেই। বর্তমান যুগে কৃষিক্ষেত্রে এক যুগান্তকারী পরিবর্তন এনেছে বিজ্ঞান। আধুনিক বিজ্ঞান ও প্রযুক্তির জাদুকরী স্পর্শে কৃষিকাজ আজ এক বিশাল শিল্পে পরিণত হয়েছে।</p>
                 <div class="quote">
-                    "আর সবকিছু অপেক্ষা করতে পারে, কিন্তু কৃষি নয়।" 
+                    <p>"আর সবকিছু অপেক্ষা করতে পারে, কিন্তু কৃষি নয়।"</p>
                     <strong>— পণ্ডিত জওহরলাল নেহরু</strong>
                 </div>
 
@@ -296,7 +519,7 @@
                 <h3>১৪. যোগাযোগ ব্যবস্থা ও বাজারজাতকরণ</h3>
                 <p>তথ্যপ্রযুক্তির প্রসারের ফলে কৃষকরা আজ সরাসরি বাজারের সাথে সংযুক্ত। মোবাইল ফোন, ইন্টারনেট ও কৃষি অ্যাপের মাধ্যমে তারা ঘরে বসেই ফসলের ন্যায্যমূল্য জানতে পারছেন এবং মধ্যস্বত্বভোগীদের প্রতারণার হাত থেকে রক্ষা পাচ্ছেন।</p>
                 <div class="quote">
-                    "খাদ্য পাওয়া মানুষের মৌলিক অধিকার। কৃষিবিজ্ঞানই পারে এই অধিকার সবার ঘরে পৌঁছে দিতে।" 
+                    <p>"খাদ্য পাওয়া মানুষের মৌলিক অধিকার। কৃষিবিজ্ঞানই পারে এই অধিকার সবার ঘরে পৌঁছে দিতে।"</p>
                     <strong>— নরম্যান বোরল্যাগ (সবুজ বিপ্লবের জনক ও নোবেলজয়ী বিজ্ঞানী)</strong>
                 </div>
 
@@ -307,142 +530,138 @@
                 <p>কৃষিকাজ এবং বিজ্ঞান আজ মুদ্রার এপিঠ-ওপিঠ। বিজ্ঞান ছাড়া আধুনিক কৃষির অস্তিত্ব কল্পনাও করা যায় না। ক্রমবর্ধমান জনসংখ্যার খাদ্যের চাহিদা মেটাতে এবং অর্থনীতিকে শক্তিশালী করতে কৃষিতে বিজ্ঞানের বিকল্প নেই। তবে আমাদের মনে রাখতে হবে, বিজ্ঞানের প্রয়োগ হতে হবে পরিমিত ও পরিবেশবান্ধব। তাহলেই কৃষি হয়ে উঠবে আমাদের জীবন বাঁচানোর এক অফুরন্ত আশীর্বাদ।</p>
             </article>
 
-            <!-- ============================================== -->
             <!-- ESSAY 2: সময়ানুবর্তিতা -->
-            <!-- ============================================== -->
             <article id="essay-somoyanubortita" class="essay">
                 <h1>সময়ানুবর্তিতা</h1>
 
                 <h3>১. সূচনা</h3>
                 <p>মানবজীবনের অন্যতম শ্রেষ্ঠ ও মৌলিক গুণ হলো সময়ানুবর্তিতা। সময়ের সঠিক ব্যবহার এবং জীবনের প্রতিটি কাজ নির্দিষ্ট সময়ে সম্পন্ন করার অভ্যাসের ওপরই মানব সভ্যতার অগ্রগতি ও ব্যক্তির উন্নয়ন নির্ভর করে। সময় এক অখণ্ড প্রবাহ; তা কারও জন্য থেমে থাকে না। তাই সার্থক জীবন গঠনে সময়ানুবর্তিতার কোনো বিকল্প নেই।</p>
                 <div class="quote">
-                    "সময় ও স্রোত কারও জন্য অপেক্ষা করে না।" 
+                    <p>"সময় ও স্রোত কারও জন্য অপেক্ষা করে না।"</p>
                     <strong>— প্রচলিত প্রবাদ</strong>
                 </div>
 
                 <h3>২. সময়ানুবর্তিতা কী</h3>
                 <p>সময়কে সঠিকভাবে অনুধাবন করা এবং আলস্য ত্যাগ করে নির্ধারিত কাজ নির্দিষ্ট সময়ে সম্পন্ন করার মানসিকতা ও অভ্যাসকেই সময়ানুবর্তিতা বলা হয়। সঠিক সময়ে সঠিক কাজ করাই সময়ানুবর্তিতার মূল কথা। এটি মানুষের জীবনকে সুশৃঙ্খল ও গতিময় করে তোলে।</p>
                 <div class="quote">
-                    "তুমি যদি সময়কে ভালোবাসো, তবে সময় নষ্ট কোরো না; কারণ জীবনটা সময়েরই সমষ্টি।" 
+                    <p>"তুমি যদি সময়কে ভালোবাসো, তবে সময় নষ্ট কোরো না; কারণ জীবনটা সময়েরই সমষ্টি।"</p>
                     <strong>— বেনজামিন ফ্র্যাঙ্কলিন</strong>
                 </div>
 
                 <h3>৩. মানবজীবনে সময়ের গুরুত্ব</h3>
                 <p>মানবজীবনে সময়ের মূল্য অপরিসীম। সময় এক অমূল্য সম্পদ, যা একবার চলে গেলে কোটি টাকা খরচ করেও আর ফিরিয়ে আনা সম্ভব নয়। জগতের সব হারিয়ে যাওয়া সম্পদ পুনরুদ্ধার করা সম্ভব হলেও অপচয় হওয়া সময় চিরকালের জন্য হারিয়ে যায়।</p>
                 <div class="quote">
-                    "নদীর জল আর চলে যাওয়া সময়—দুটোই কখনো পেছনে ফিরে আসে না।" 
+                    <p>"নদীর জল আর চলে যাওয়া সময়—দুটোই কখনো পেছনে ফিরে আসে না।"</p>
                     <strong>— জন ড্রাইডেন</strong>
                 </div>
 
                 <h3>৪. সময়ানুবর্তিতার প্রয়োজনীয়তা</h3>
                 <p>জীবনের বিশৃঙ্খলা দূর করে প্রতিটি কাজে ধারাবাহিকতা ও সফলতা ফিরিয়ে আনতে সময় সচেতন হওয়া একান্ত প্রয়োজন। সময়ের সঠিক ব্যবহার ছাড়া জীবনের কোনো ক্ষেত্রেই কাঙ্ক্ষিত উন্নতি অর্জন করা যায় না। সময় সচেতন মানুষই জীবনের পথচলায় অন্যদের চেয়ে এগিয়ে থাকে।</p>
                 <div class="quote">
-                    "শৃঙ্খলা ও সময় সচেতনতাই মানুষের আত্মোন্নতির প্রধান হাতিয়ার।" 
+                    <p>"শৃঙ্খলা ও সময় সচেতনতাই মানুষের আত্মোন্নতির প্রধান হাতিয়ার।"</p>
                     <strong>— অ্যারিস্টটল</strong>
                 </div>
 
                 <h3>৫. ছাত্রজীবনে সময়ানুবর্তিতা</h3>
                 <p>ছাত্রজীবন হলো ভবিষ্যৎ গড়ার সোনালি সময়। পড়াশোনা, খেলাধুলা ও দৈনন্দিন অন্যান্য কাজ নির্দিষ্ট সময়ে সম্পাদন করার অভ্যাস এই বয়সেই গড়ে তুলতে হয়। যে শিক্ষার্থী ছাত্রজীবনে সময়ের সঠিক ব্যবহার করে, তার ভবিষ্যৎ অত্যন্ত উজ্জ্বল হয়।</p>
                 <div class="quote">
-                    "যে ছাত্র শৈশবে সময়ের মূল্য দিতে শেখে, সাফল্য তার জীবনকে গৌরবান্বিত করে।" 
+                    <p>"যে ছাত্র শৈশবে সময়ের মূল্য দিতে শেখে, সাফল্য তার জীবনকে গৌরবান্বিত করে।"</p>
                     <strong>— কবি কাজী নজরুল ইসলাম</strong>
                 </div>
 
                 <h3>৬. সাফল্যের মূল চাবিকাঠি</h3>
                 <p>পৃথিবীর ইতিহাসে কোনো মানুষই সময়কে অবহেলা করে সফল হতে পারেননি। মেধা ও কঠোর পরিশ্রমের সাথে সময়ানুবর্তিতা যুক্ত হলেই কেবল সফলতা অর্জন সম্ভব হয়। সময়ানুবর্তিতাই মানুষকে উন্নতির সর্বোচ্চ শিখরে পৌঁছে দেয়।</p>
                 <div class="quote">
-                    "সাফল্য ও ব্যর্থতার মাঝের মূল পার্থক্যটি তৈরি করে দেয় সময়ের সঠিক ব্যবহার।" 
+                    <p>"সাফল্য ও ব্যর্থতার মাঝের মূল পার্থক্যটি তৈরি করে দেয় সময়ের সঠিক ব্যবহার।"</p>
                     <strong>— আলবার্ট আইনস্টাইন</strong>
                 </div>
 
                 <h3>৭. কর্মজীবনে সময়ানুবর্তিতা</h3>
                 <p>পেশাগত ক্ষেত্রে সময়ের অপচয় অদক্ষতা ও দায়িত্বহীনতার পরিচায়ক। অর্পিত দায়িত্ব নির্দিষ্ট সময়ে শেষ করার ওপরই ব্যক্তির কর্মদক্ষতা, প্রতিষ্ঠানের সুনাম এবং নিজের ক্যারিয়ারের অগ্রগতি নির্ভর করে।</p>
                 <div class="quote">
-                    "দেরি করে পৌঁছানোর চেয়ে তিন ঘণ্টা আগে গিয়ে অপেক্ষা করা অনেক ভালো।" 
+                    <p>"দেরি করে পৌঁছানোর চেয়ে তিন ঘণ্টা আগে গিয়ে অপেক্ষা করা অনেক ভালো।"</p>
                     <strong>— উইলিয়াম শেক্সপিয়ার</strong>
                 </div>
 
                 <h3>৮. জাতীয় জীবনে সময়ানুবর্তিতার প্রভাব</h3>
                 <p>একটি জাতির সার্বিক অর্থনৈতিক ও সামাজিক উন্নতি নির্ভর করে তার নাগরিকদের সময় সচেতনতার ওপর। বিশ্বের যেসকল জাতি সময়ের প্রতি যত বেশি শ্রদ্ধাশশীল, বিশ্ব দরবারে তারা তত বেশি উন্নত ও সমৃদ্ধ।</p>
                 <div class="quote">
-                    "যে জাতি সময়ের মূল্য বুঝতে পেরেছে, বিশ্ব মানচিত্রে তারাই নেতৃত্ব দিচ্ছে।" 
+                    <p>"যে জাতি সময়ের মূল্য বুঝতে পেরেছে, বিশ্ব মানচিত্রে তারাই নেতৃত্ব দিচ্ছে।"</p>
                     <strong>— মহাত্মা গান্ধী</strong>
                 </div>
 
                 <h3>৯. মহাপুরুষদের জীবনে সময়ানুবর্তিতা</h3>
                 <p>বিশ্বে যাঁরা স্মরণীয় ও বরণীয় হয়েছেন, তাঁদের জীবনের প্রতিটি ক্ষেত্র পর্যালোচনা করলে দেখা যায় তাঁরা সময়ের ব্যবহারের প্রতি অত্যন্ত কঠোর ছিলেন। নেপোলিয়ন, আইনস্টাইন বা মহাত্মা গান্ধীর মতো মহাপুরুষদের জয়ের মূল চাবিকাঠি ছিল সময়ানুবর্তিতা।</p>
                 <div class="quote">
-                    "আমি যুদ্ধে হারিনি, হেরেছি কেবল পাঁচ মিনিট সময়ের দেরির কারণে।" 
+                    <p>"আমি যুদ্ধে হারিনি, হেরেছি কেবল পাঁচ মিনিট সময়ের দেরির কারণে।"</p>
                     <strong>— নেপোলিয়ন বোনাপার্ট</strong>
                 </div>
 
                 <h3>১০. সময়ানুবর্তিতা ও চরিত্র গঠন</h3>
                 <p>নিয়মানুবর্তিতা ও সময় সচেতনতা মানুষকে কেবল সফলই করে না, বরং তার চরিত্রকে সুগঠিত ও উন্নত করে। এটি মানুষকে দায়িত্বশীল, আত্মসংযমী, সুশৃঙ্খল ও সমাজে সর্বজনশ্রদ্ধেয় নাগরিক হিসেবে গড়ে তোলে।</p>
                 <div class="quote">
-                    "সময়ানুবর্তিতা হলো এমন এক ব্যক্তিত্বের অলংকার, যা মানুষকে সমাজে সর্বজনশ্রদ্ধেয় করে তোলে।" 
+                    <p>"সময়ানুবর্তিতা হলো এমন এক ব্যক্তিত্বের অলংকার, যা মানুষকে সমাজে সর্বজনশ্রদ্ধেয় করে তোলে।"</p>
                     <strong>— সক্রেটিস</strong>
                 </div>
 
                 <h3>১১. প্রকৃতি থেকে শিক্ষা</h3>
                 <p>প্রকৃতি আমাদের সময়ানুবর্তিতার নিখুঁত ও অনুপম শিক্ষা দেয়। সূর্য উদয়-অস্ত, ঋতু পরিবর্তন, জোয়ার-ভাটা—সবই প্রকৃতিতে নির্দিষ্ট সময়ে ও নিয়মে ঘটে চলেছে। প্রকৃতি থেকে শিক্ষা নিয়ে মানুষেরও সময়নিষ্ঠ হওয়া উচিত।</p>
                 <div class="quote">
-                    "প্রকৃতির দিকে তাকাও, সে কখনো তাড়াহুড়ো করে না, অথচ তার কোনো কাজই অসম্পূর্ণ থাকে না।" 
+                    <p>"প্রকৃতির দিকে তাকাও, সে কখনো তাড়াহুড়ো করে না, অথচ তার কোনো কাজই অসম্পূর্ণ থাকে না।"</p>
                     <strong>— লাও সেু</strong>
                 </div>
 
                 <h3>১২. সময় অবহেলার পরিণতি</h3>
                 <p>সময়কে অবহেলা করলে জীবনের পথ অন্ধকার ও হতাশাপূর্ণ হয়ে ওঠে। অসময়ের আলস্য ও অপচয় ভবিষ্যতের জন্য কেবল দুঃখ, ব্যর্থতা এবং তীব্র আফসোস বয়ে আনে। অলস মানুষ শেষ পর্যন্ত জীবনের দৌড়ে পিছিয়ে পড়ে।</p>
                 <div class="quote">
-                    "তুমি হয়তো সময় নষ্ট করতে পারো, কিন্তু সময় তোমাকে বিন্দুমাত্র ছাড় দেবে না।" 
+                    <p>"তুমি হয়তো সময় নষ্ট করতে পারো, কিন্তু সময় তোমাকে বিন্দুমাত্র ছাড় দেবে না।"</p>
                     <strong>— চার্লস ডিকেন্স</strong>
                 </div>
 
                 <h3>১৩. সময়ের এক ফোঁড় অসময়ের দশ ফোঁড়</h3>
                 <p>সঠিক সময়ে সঠিক পদক্ষেপ গ্রহণ করলে পরবর্তীতে কোনো বড় ধরনের ঝামেলা বা ভোগান্তির মুখোমুখি হতে হয় না। কাজের শুরুতেই সচেতন হলে অল্প পরিশ্রমেও বড় সাফল্য নিশ্চিত করা যায়।</p>
                 <div class="quote">
-                    "A stitch in time saves nine." 
+                    <p>"A stitch in time saves nine."</p>
                     <strong>— প্রচলিত ইংরেজি প্রবাদ</strong>
                 </div>
 
                 <h3>১৪. সময়ানুবর্তিতা অভ্যাসের উপায়</h3>
                 <p>সময়ানুবর্তিতা অর্জন করতে হলে নির্দিষ্ট দৈনিক রুটিন তৈরি ও অনুসরণ করা প্রয়োজন। অলসতা ত্যাগ করে কাজের গুরুত্ব অনুযায়ী তালিকা বানিয়ে নেওয়ার মাধ্যমে শৈশব থেকেই এই মহান গুণটি সহজে অভ্যাসে পরিণত করা যায়।</p>
                 <div class="quote">
-                    "আগামীকালের কাজ আজই করো, আর বিকেলের কাজ শেষ করো সকালে।" 
+                    <p>"আগামীকালের কাজ আজই করো, আর বিকেলের কাজ শেষ করো সকালে।"</p>
                     <strong>— কনফুসিয়াস</strong>
                 </div>
 
                 <h3>১৫. আধুনিক বিশ্ব ও সময়ানুবর্তিতা</h3>
                 <p>বর্তমান তথ্যপ্রযুক্তি ও দ্রুতগতির যুগে প্রতিযোগিতায় টিকে থাকতে হলে প্রতি সেকেন্ডের মূল্য অপরিসীম। আধুনিক বিশ্ব অত্যন্ত দ্রুত পরিবর্তনশীল; তাই এখানে টিকে থাকতে হলে সময় সচেতনতার বিকল্প নেই।</p>
                 <div class="quote">
-                    "আধুনিক বিশ্বের মূল চালিকাশক্তি হলো গতি, আর গতির মূল প্রাণ হলো সময়ানুবর্তিতা।" 
+                    <p>"আধুনিক বিশ্বের মূল চালিকাশক্তি হলো গতি, আর গতির মূল প্রাণ হলো সময়ানুবর্তিতা।"</p>
                     <strong>— আলবার্ট হাবার্ড</strong>
                 </div>
 
                 <h3>১৬. সামাজিক শিষ্টাচার ও সময়</h3>
-                <p>ব্যক্তিগত কাজের পাশাপাশি সামাজিক অনুষ্ঠান কিংবা অপরের সাথে যোগাযোগের ক্ষেত্রে সময় রক্ষা করা একটি গুরুত্বপূর্ণ শিষ্টাচার। অন্যকে দেওয়া সময়ের প্রতিশ্রুতি রক্ষা করা সভ্য সমাজের অন্যতম লক্ষণ।</p>
+                <p>ব্যক্তিগত কাজের পাশাপাশি সামাজিক অনুষ্ঠান কিংবা অপরের সাথে যোগাযোগের ক্ষেত্রে সময় রক্ষা করা একটি গুরুত্বপূর্ণ শিষ্টাচার। অন্যকে দেওয়া সময়ের প্রতিশ্রুতি রক্ষা করা সভ্য সমাজের অন্যতম লক্ষণ।</p>
                 <div class="quote">
-                    "অন্যের সময়ের প্রতি শ্রদ্ধা দেখানোই সভ্য আচরণের প্রথম লক্ষণ।" 
+                    <p>"অন্যের সময়ের প্রতি শ্রদ্ধা দেখানোই সভ্য আচরণের প্রথম লক্ষণ।"</p>
                     <strong>— লর্ড চেস্টারফিল্ড</strong>
                 </div>
 
                 <h3>১৭. উপসংহার</h3>
                 <p>গড়ানো সময় আর কখনো ফিরে আসে না। অতীতকে পরিবর্তন করা অসম্ভব, কিন্তু বর্তমানের সৎব্যবহারের মাধ্যমে সুন্দর ভবিষ্যৎ গঠন করা সম্ভব। তাই জীবনকে সার্থক, অর্থবহ ও সফল করতে আমাদের সকলেরই সময়ানুবর্তিতার চর্চা করা উচিত।</p>
                 <div class="quote">
-                    "অতীত চলে গেছে, ভবিষ্যৎ অনিশ্চিত; কেবল বর্তমানই আমাদের হাতে রয়েছে।" 
+                    <p>"অতীত চলে গেছে, ভবিষ্যৎ অনিশ্চিত; কেবল বর্তমানই আমাদের হাতে রয়েছে।"</p>
                     <strong>— জন সি. ম্যাক্সওয়েল</strong>
                 </div>
             </article>
 
-            <!-- ============================================== -->
-            <!-- ESSAY 3: মাদকাসক্তি: কারণ, প্রভাব ও সমাধান -->
-            <!-- ============================================== -->
+            <!-- ESSAY 3: মাদকাসক্তি -->
             <article id="essay-madokashokti" class="essay">
                 <h1>মাদকাসক্তি: কারণ, প্রভাব ও সমাধান</h1>
 
                 <h3>১. ভূমিকা</h3>
                 <p>বিশ্ব সভ্যতার অগ্রযাত্রার পাশাপাশি মানবসমাজ আজ যেসব ভয়াবহ ব্যাধির মুখোমুখি, তার মধ্যে মাদকাসক্তি অন্যতম। এটি এক নীরব ঘাতক, যা ব্যক্তিজীবন থেকে শুরু করে পারিবারিক শান্তি, সামাজিক স্থায়িত্ব এবং জাতীয় অগ্রগতিকে পঙ্গু করে দেয়। বর্তমান যুগে মাদকের বিষাক্ত ছোবল বিশেষ করে তরুণ সমাজকে গ্রাস করে নিচ্ছে, যা দেশের সম্ভাবনাময় ভবিষ্যতের জন্য চরম হুমকির কারণ।</p>
                 <div class="quote">
-                    "জীবন একটি সুন্দর উপহার, একে মাদকের বিষাক্ত ছোঁয়ায় নষ্ট হতে দেওয়া যায় না।" 
+                    <p>"জীবন একটি সুন্দর উপহার, একে মাদকের বিষাক্ত ছোঁয়ায় নষ্ট হতে দেওয়া যায় না।"</p>
                     <strong>— আন্তর্জাতিক মাদকবিরোধী আহ্বান</strong>
                 </div>
 
@@ -458,21 +677,21 @@
                 <h3>৫. যুবসমাজের ভূমিকা ও বিভ্রান্তি</h3>
                 <p>যেকোনো দেশের মূল চালিকাশক্তি হলো তার তরুণ ও যুবসমাজ। অথচ এই যুবসমাজই আজ মাদকাসক্তির প্রধান শিকার। উঠতি বয়সের কিশোর ও তরুণরা অতিমাত্রায় কৌতূহলপ্রবণ হওয়ায় ফ্যাশন বা আধুনিকতার ভুল ধারণাবশত প্রথম মাদক স্পর্শ করে। পরবর্তীতে এটিই তাদের অভ্যাসে পরিণত হয়।</p>
                 <div class="quote">
-                    "ওঠো, জাগো, এবং নিজের লক্ষ্য অর্জিত না হওয়া পর্যন্ত থেমো না।" 
+                    <p>"ওঠো, জাগো, এবং নিজের লক্ষ্য অর্জিত না হওয়া পর্যন্ত থেমো না।"</p>
                     <strong>— স্বামী বিবেকানন্দ</strong>
                 </div>
 
                 <h3>৬. শারীরিক স্বাস্থ্যের ওপর প্রভাব</h3>
                 <p>মাদকদ্রব্য মানুষের শরীরের প্রতিটি গুরুত্বপূর্ণ অঙ্গকে ধীরে ধীরে অকেজো করে দেয়। বিষাক্ত কেমিক্যালের কারণে মানুষের হৃৎপিণ্ড, ফুসফুস, লিভার ও কিডনি মারাত্মকভাবে ক্ষতিগ্রস্ত হয়। রক্তচাপ বৃদ্ধি, হজমশক্তির বিনাশ এবং শরীরের রোগ প্রতিরোধ ক্ষমতা পুরোপুরি ভেঙে পড়ে।</p>
                 <div class="quote">
-                    "স্বাস্থ্যই পরম ধন, সোনা কিংবা রূপোর টুকরো নয়।" 
+                    <p>"স্বাস্থ্যই পরম ধন, সোনা কিংবা রূপোর টুকরো নয়।"</p>
                     <strong>— মহাত্মা গান্ধী</strong>
                 </div>
 
                 <h3>৭. মানসিক স্বাস্থ্যের ওপর প্রভাব</h3>
                 <p>মাদক কেবল শরীরকেই শেষ করে না, এটি মস্তিষ্কের স্বাভাবিক রাসায়নিক ভারসাম্য সম্পূর্ণ নষ্ট করে দেয়। ফলে আসক্ত ব্যক্তির চিন্তা-চেতনায় বিশৃঙ্খলা দেখা দেয়। সে তীব্র বিষণ্ণতা, মেজাজের উগ্রতা, স্মৃতিভ্রম এবং নানা প্রকার মানসিক ভারসাম্যহীনতায় ভোগে। ধীরে ধীরে তার নৈতিক অবক্ষয় ঘটে।</p>
                 <div class="quote">
-                    "অর্থ হারালে কিছুই হারায় না, স্বাস্থ্য হারালে কিছু হারায়, কিন্তু চরিত্র হারালে সবই হারিয়ে যায়।" 
+                    <p>"অর্থ হারালে কিছুই হারায় না, স্বাস্থ্য হারালে কিছু হারায়, কিন্তু চরিত্র হারালে সবই হারিয়ে যায়।"</p>
                     <strong>— প্রচলিত উক্তি</strong>
                 </div>
 
@@ -491,51 +710,75 @@
                 <h3>১২. ধর্মীয় ও নৈতিক দৃষ্টিভঙ্গি</h3>
                 <p>বিশ্বের প্রায় প্রতিটি ধর্মে মাদক ও নেশাজাতীয় দ্রব্যকে কঠোরভাবে নিষিদ্ধ করা হয়েছে। ইসলাম ধর্মে স্পষ্ট উল্লেখ রয়েছে—</p>
                 <div class="quote">
-                    "যে বস্তু বেশি পরিমাণে গ্রহণ করলে নেশা সৃষ্টি হয়, তার কম পরিমাণ গ্রহণ করাও হারাম।" 
+                    <p>"যে বস্তু বেশি পরিমাণে গ্রহণ করলে নেশা সৃষ্টি হয়, তার কম পরিমাণ গ্রহণ করাও হারাম।"</p>
                     <strong>— আল-হাদিস</strong>
                 </div>
 
                 <h3>১৩. মাদকাসক্তি রোধে আইনি পদক্ষেপ</h3>
                 <p>মাদকের বিস্তার রুখতে রাষ্ট্রীয় আইন প্রয়োগের গুরুত্ব অপরিসীম। মাদকদ্রব্য নিয়ন্ত্রণ আইন কঠোরভাবে প্রয়োগ করে মাদকের সহজলভ্যতা বন্ধ করতে হবে।</p>
                 <div class="quote">
-                    "অন্যায় যে করে আর অন্যায় যে সহে / তব ঘৃণা যেন তারে তৃণ সম দহে।" 
+                    <p>"অন্যায় যে করে আর অন্যায় যে সহে / তব ঘৃণা যেন তারে তৃণ সম দহে।"</p>
                     <strong>— রবীন্দ্রনাথ ঠাকুর</strong>
                 </div>
 
                 <h3>১৪. প্রতিকার ও পুনর্বাসন</h3>
-                <p>মাদকাসক্ত ব্যক্তিকে কেবল অপরাধী হিসেবে ঘৃণা না করে তাকে একজন ব্যাধিগ্রস্ত রোগী হিসেবে বিবেচনা করা উচিত। সঠিক 'ডিটক্সিফিকেশন' (বিষমুক্তকরণ), মনস্তাত্ত্বিক কাউন্সিলিং এবং উপযুক্ত মানসিক চিকিৎসার মাধ্যমে তাকে আসক্তি থেকে মুক্ত করতে হবে। একই সাথে পুনর্বাসন কেন্দ্রগুলোর সঠিক ব্যবস্থাপনা নিশ্চিত করে আসক্তদের বিভিন্ন পেশাগত প্রশিক্ষণ ও কর্মসংস্থানের সুযোগ দিয়ে সমাজের মূল স্রোতে ফিরিয়ে আনা সম্ভব।</p>
+                <p>মাদকাসক্ত ব্যক্তিকে কেবল অপরাধী হিসেবে ঘৃণা না করে তাকে একজন ব্যাধিগ্রস্ত রোগী হিসেবে বিবেচনা করা উচিত। সঠিক 'ডিটক্সিফিকেশন' (বিষমুক্তকরণ), মনস্তাত্ত্বিক কাউন্সিলিং এবং উপযুক্ত মানসিক চিকিৎসার মাধ্যমে তাকে আসক্তি থেকে মুক্ত করতে হবে। একই সাথে পুনর্বাসন কেন্দ্রগুলোর সঠিক ব্যবস্থাপনা নিশ্চিত করে আসক্তদের বিভিন্ন পেশাগত প্রশিক্ষণ ও কর্মসংস্থানের সুযোগ দিয়ে সমাজের মূল স্রোতে ফিরিয়ে আনা সম্ভব।</p>
 
                 <h3>১৫. উপসংহার</h3>
                 <p>মাদকাসক্তি একটি মারাত্মক সর্বগ্রাসী সামাজিক ব্যাধি। কেবল সরকারি পদক্ষেপ বা একক কোনো সংস্থার পক্ষে এই সমস্যা সমাধান করা সম্ভব নয়। এর জন্য প্রয়োজন সমন্বিত সামাজিক আন্দোলন ও গণসচেতনতা।</p>
                 <div class="quote">
-                    "তুমি নিজে সেই পরিবর্তন হও, যা তুমি এই বিশ্বে দেখতে চাও।" 
+                    <p>"তুমি নিজে সেই পরিবর্তন হও, যা তুমি এই বিশ্বে দেখতে চাও।"</p>
                     <strong>— মহাত্মা গান্ধী</strong>
                 </div>
             </article>
 
-        </div>
+        </main>
     </div>
 
-    <!-- Footer with Credit -->
+    <!-- Footer with Requested Custom Credit -->
     <footer>
-        Made with <span>❤️</span> by <strong>Luis</strong>
+        made with depression by <strong>luis</strong>
     </footer>
 
-    <!-- JavaScript to toggle between essays -->
+    <!-- JavaScript Features -->
     <script>
+        // Essay Switcher
         function showRochona(essayId, buttonElement) {
-            const essays = document.querySelectorAll('.essay');
-            essays.forEach(essay => {
-                essay.classList.remove('active');
-            });
-
-            const buttons = document.querySelectorAll('.rochona-list button');
-            buttons.forEach(button => {
-                button.classList.remove('active');
-            });
+            document.querySelectorAll('.essay').forEach(e => e.classList.remove('active'));
+            document.querySelectorAll('.rochona-list button').forEach(b => b.classList.remove('active'));
 
             document.getElementById(essayId).classList.add('active');
             buttonElement.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateProgress();
+        }
+
+        // Live Essay Filter / Search
+        function filterEssays() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const listItems = document.querySelectorAll('#rochonaList li');
+
+            listItems.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                item.style.display = text.includes(input) ? '' : 'none';
+            });
+        }
+
+        // Font Size Adjuster
+        let currentFontSize = 18;
+        function changeFontSize(delta) {
+            currentFontSize = Math.min(Math.max(14, currentFontSize + delta), 26);
+            document.documentElement.style.setProperty('--font-size-base', currentFontSize + 'px');
+        }
+
+        // Scroll Reading Progress Bar
+        window.onscroll = function() { updateProgress() };
+        function updateProgress() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
         }
     </script>
 </body>
