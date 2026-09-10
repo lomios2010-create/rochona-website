@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>বাংলা রচনা সম্ভার | Premium Bengali Essay Collection</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    <title>বাংলা রচনা সংগ্রহ | Bengali Essay Collection</title>
+    <!-- Google Fonts for Formal Bengali Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Noto+Serif+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-main: #0f172a;
-            --bg-card: #1e293b;
-            --bg-card-hover: #334155;
-            --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-            --accent-glow: linear-gradient(135deg, #06b6d4, #3b82f6);
-            --text-title: #f8fafc;
-            --text-body: #cbd5e1;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.1);
-            --quote-bg: rgba(99, 102, 241, 0.1);
-            --quote-border: #6366f1;
+            --bg-body: #f4f6f9;
+            --bg-card: #ffffff;
+            --primary-navy: #1e3a8a;
+            --secondary-blue: #2563eb;
+            --accent-gold: #d97706;
+            --text-heading: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --quote-bg: #f8fafc;
             --font-size-base: 18px;
         }
 
@@ -31,12 +30,12 @@
         }
 
         body {
-            font-family: 'Hind Siliguri', sans-serif;
+            font-family: 'Noto Serif Bengali', serif;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-main);
+            background-color: var(--bg-body);
             color: var(--text-body);
-            line-height: 1.9;
+            line-height: 1.95;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -55,19 +54,19 @@
 
         .progress-bar {
             height: 100%;
-            background: var(--primary-gradient);
+            background: var(--primary-navy);
             width: 0%;
         }
 
-        /* Header */
+        /* Classic Header */
         header {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
+            background: #ffffff;
+            border-bottom: 2px solid var(--primary-navy);
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 16px 0;
         }
 
         .header-content {
@@ -86,108 +85,114 @@
         }
 
         .brand-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--primary-gradient);
-            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            background: var(--primary-navy);
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 22px;
-            color: #fff;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+            font-size: 20px;
+            color: #ffffff;
         }
 
         .brand-text h1 {
+            font-family: 'Hind Siliguri', sans-serif;
             margin: 0;
-            font-size: 26px;
-            color: var(--text-title);
+            font-size: 24px;
+            color: var(--text-heading);
             font-weight: 700;
         }
 
         .brand-text p {
             margin: 0;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-muted);
+            font-family: 'Hind Siliguri', sans-serif;
         }
 
-        /* Main Container */
+        /* Main Layout */
         .container {
             display: flex;
-            max-width: 1250px;
+            max-width: 1200px;
             margin: 30px auto;
-            gap: 30px;
+            gap: 25px;
             padding: 0 20px;
             flex: 1;
             width: 100%;
         }
 
-        /* Sidebar */
+        /* Classic Sidebar */
         .sidebar {
-            width: 340px;
+            width: 320px;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 24px;
+            border-radius: 10px;
+            padding: 20px;
             height: fit-content;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             position: sticky;
-            top: 100px;
+            top: 90px;
         }
 
         .sidebar-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            font-family: 'Hind Siliguri', sans-serif;
         }
 
         .sidebar-title {
             font-size: 18px;
             font-weight: 700;
-            color: var(--text-title);
+            color: var(--primary-navy);
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .badge {
-            background: rgba(99, 102, 241, 0.2);
-            color: #818cf8;
-            padding: 2px 10px;
-            border-radius: 20px;
-            font-size: 13px;
-            border: 1px solid rgba(99, 102, 241, 0.3);
+            background: #f1f5f9;
+            color: var(--text-muted);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
         }
 
         .search-box {
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .search-box input {
             width: 100%;
-            padding: 12px 16px 12px 42px;
-            background: var(--bg-main);
+            padding: 10px 14px 10px 38px;
+            background: #f8fafc;
             border: 1px solid var(--border-color);
-            border-radius: 12px;
-            color: var(--text-title);
-            font-family: inherit;
-            font-size: 15px;
+            border-radius: 8px;
+            color: var(--text-heading);
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 14px;
             outline: none;
         }
 
         .search-box input:focus {
-            border-color: #6366f1;
-            box-shadow: 0 0 12px rgba(99, 102, 241, 0.3);
+            border-color: var(--primary-navy);
+            background: #ffffff;
         }
 
         .search-box i {
             position: absolute;
-            left: 14px;
+            left: 12px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
+            font-size: 14px;
         }
 
         .rochona-list {
@@ -196,67 +201,61 @@
             margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .rochona-list button {
             width: 100%;
             text-align: left;
-            padding: 14px 18px;
-            background: rgba(255, 255, 255, 0.03);
+            padding: 12px 14px;
+            background: #ffffff;
             border: 1px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 15px;
             font-family: 'Hind Siliguri', sans-serif;
             color: var(--text-body);
             font-weight: 600;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .rochona-list button:hover {
-            background: var(--bg-card-hover);
-            border-color: rgba(255, 255, 255, 0.2);
-            transform: translateX(4px);
+            background: #f8fafc;
+            border-color: #cbd5e1;
         }
 
         .rochona-list button.active {
-            background: var(--primary-gradient);
+            background: var(--primary-navy);
             color: #ffffff;
-            border-color: transparent;
-            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+            border-color: var(--primary-navy);
         }
 
-        .rochona-list button.active i {
-            transform: translateX(3px);
-        }
-
-        /* Content Area */
+        /* Formal Reader Card */
         .content-card {
             flex: 1;
             background: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
+            border-radius: 10px;
             padding: 45px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
             min-width: 0;
         }
 
-        /* Essay Toolbar */
+        /* Toolbar */
         .essay-toolbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
             border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            font-family: 'Hind Siliguri', sans-serif;
         }
 
         .read-time {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-muted);
             display: flex;
             align-items: center;
@@ -266,120 +265,113 @@
         .font-controls {
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: var(--bg-main);
-            padding: 4px 8px;
-            border-radius: 10px;
-            border: 1px solid var(--border-color);
+            gap: 6px;
         }
 
         .font-controls button {
-            background: transparent;
-            border: none;
-            color: var(--text-title);
+            background: #f1f5f9;
+            border: 1px solid var(--border-color);
+            color: var(--text-heading);
             cursor: pointer;
-            padding: 6px 10px;
+            padding: 4px 10px;
             border-radius: 6px;
             font-weight: 700;
+            font-size: 13px;
         }
 
         .font-controls button:hover {
-            background: var(--bg-card-hover);
+            background: #e2e8f0;
         }
 
-        /* Article Styling */
+        /* Formal Article Styling */
         .essay {
             display: none;
-            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .essay.active {
             display: block;
         }
 
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .essay h1 {
-            font-size: 36px;
-            color: var(--text-title);
+            font-size: 34px;
+            color: var(--primary-navy);
             margin-top: 0;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
             font-weight: 700;
             text-align: center;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
         }
 
         .essay h3 {
-            color: #818cf8;
-            font-size: 22px;
-            margin-top: 35px;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 8px;
+            color: var(--primary-navy);
+            font-size: 21px;
+            margin-top: 30px;
+            margin-bottom: 12px;
+            font-family: 'Hind Siliguri', sans-serif;
+            border-left: 4px solid var(--primary-navy);
+            padding-left: 10px;
         }
 
         .essay p {
             font-size: var(--font-size-base);
             color: var(--text-body);
             text-align: justify;
-            margin-bottom: 18px;
-            word-break: break-word;
+            margin-bottom: 16px;
+            line-height: 1.95;
         }
 
-        /* Quotes */
+        /* Formal Quote */
         .quote {
             background: var(--quote-bg);
-            border-left: 4px solid var(--quote-border);
-            padding: 20px 24px;
-            margin: 25px 0;
-            border-radius: 0 16px 16px 0;
-            position: relative;
+            border-left: 4px solid var(--accent-gold);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .quote p {
             margin: 0;
             font-style: italic;
             font-size: calc(var(--font-size-base) + 1px);
-            color: #e2e8f0;
+            color: #1e293b;
         }
 
         .quote strong {
             display: block;
-            margin-top: 10px;
-            font-size: 15px;
-            color: #a855f7;
+            margin-top: 8px;
+            font-size: 14px;
+            color: var(--accent-gold);
             font-style: normal;
             font-weight: 600;
+            font-family: 'Hind Siliguri', sans-serif;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 25px;
-            background: rgba(15, 23, 42, 0.9);
+            padding: 20px;
+            background: #ffffff;
             border-top: 1px solid var(--border-color);
             color: var(--text-muted);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-size: 15px;
-            margin-top: 50px;
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 14px;
+            margin-top: 40px;
         }
 
         footer strong {
-            color: #f43f5e;
+            color: var(--text-heading);
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 900px) {
+        /* Mobile Responsive Enhancements */
+        @media (max-width: 850px) {
             .container {
                 flex-direction: column;
+                margin: 15px auto;
+                padding: 0 12px;
             }
             .sidebar {
                 width: 100%;
@@ -387,10 +379,13 @@
                 top: 0;
             }
             .content-card {
-                padding: 25px;
+                padding: 20px;
             }
             .essay h1 {
-                font-size: 28px;
+                font-size: 26px;
+            }
+            .essay p {
+                text-align: left;
             }
         }
     </style>
@@ -406,10 +401,10 @@
     <header>
         <div class="header-content">
             <div class="brand">
-                <div class="brand-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                <div class="brand-icon"><i class="fa-solid fa-book-open"></i></div>
                 <div class="brand-text">
-                    <h1>বাংলা রচনা সম্ভার</h1>
-                    <p>শিক্ষার্থীদের জন্য মানসম্মত ও সমৃদ্ধ প্রবন্ধ সমগ্র</p>
+                    <h1>বাংলা রচনা সংগ্রহ</h1>
+                    <p>শিক্ষার্থীদের জন্য মানসম্মত ও প্রামাণ্য প্রবন্ধ সংগ্রহ</p>
                 </div>
             </div>
         </div>
@@ -422,7 +417,7 @@
         <aside class="sidebar">
             <div class="sidebar-header">
                 <div class="sidebar-title">
-                    <i class="fa-solid fa-list-ul"></i> সূচিপত্র
+                    <i class="fa-solid fa-list"></i> বিষয়সূচি
                 </div>
                 <span class="badge" id="essayCount">৩ টি রচনা</span>
             </div>
@@ -437,19 +432,19 @@
                 <li>
                     <button class="active" onclick="showRochona('essay-krishi', this)">
                         <span><i class="fa-solid fa-wheat-awn me-2"></i> কৃষিকাজে বিজ্ঞান</span>
-                        <i class="fa-solid fa-chevron-right icon-arrow"></i>
+                        <i class="fa-solid fa-angle-right icon-arrow"></i>
                     </button>
                 </li>
                 <li>
                     <button onclick="showRochona('essay-somoyanubortita', this)">
                         <span><i class="fa-solid fa-clock me-2"></i> সময়ানুবর্তিতা</span>
-                        <i class="fa-solid fa-chevron-right icon-arrow"></i>
+                        <i class="fa-solid fa-angle-right icon-arrow"></i>
                     </button>
                 </li>
                 <li>
                     <button onclick="showRochona('essay-madokashokti', this)">
                         <span><i class="fa-solid fa-triangle-exclamation me-2"></i> মাদকাসক্তি: কারণ ও সমাধান</span>
-                        <i class="fa-solid fa-chevron-right icon-arrow"></i>
+                        <i class="fa-solid fa-angle-right icon-arrow"></i>
                     </button>
                 </li>
             </ul>
@@ -461,7 +456,7 @@
             <!-- Essay Toolbar -->
             <div class="essay-toolbar">
                 <div class="read-time">
-                    <i class="fa-regular fa-clock"></i> আনুমানিক পাঠ সময়: <span id="timeEstimate">৫ মিনিট</span>
+                    <i class="fa-regular fa-clock"></i> পড়ার সময়: <span id="timeEstimate">৫ মিনিট</span>
                 </div>
                 <div class="font-controls">
                     <button onclick="changeFontSize(-1)" title="ফন্ট ছোট করুন">A-</button>
@@ -735,14 +730,13 @@
         </main>
     </div>
 
-    <!-- Footer with Requested Custom Credit -->
+    <!-- Footer -->
     <footer>
         made with depression by <strong>luis</strong>
     </footer>
 
     <!-- JavaScript Features -->
     <script>
-        // Essay Switcher
         function showRochona(essayId, buttonElement) {
             document.querySelectorAll('.essay').forEach(e => e.classList.remove('active'));
             document.querySelectorAll('.rochona-list button').forEach(b => b.classList.remove('active'));
@@ -754,7 +748,6 @@
             updateProgress();
         }
 
-        // Live Essay Filter / Search
         function filterEssays() {
             const input = document.getElementById('searchInput').value.toLowerCase();
             const listItems = document.querySelectorAll('#rochonaList li');
@@ -765,14 +758,12 @@
             });
         }
 
-        // Font Size Adjuster
         let currentFontSize = 18;
         function changeFontSize(delta) {
-            currentFontSize = Math.min(Math.max(14, currentFontSize + delta), 26);
+            currentFontSize = Math.min(Math.max(14, currentFontSize + delta), 24);
             document.documentElement.style.setProperty('--font-size-base', currentFontSize + 'px');
         }
 
-        // Scroll Reading Progress Bar
         window.onscroll = function() { updateProgress() };
         function updateProgress() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
