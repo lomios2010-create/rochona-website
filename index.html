@@ -2,564 +2,191 @@
 <html lang="bn">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>রচনা সম্ভার</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kalpurush&family=Noto+Sans+Bengali:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'SolaimanLipi', 'Kalpurush', 'Hind Siliguri', sans-serif;
-    }
-
-    body {
-      background-color: #f3f4f6;
-      color: #1f2937;
-      transition: background-color 0.3s, color 0.3s;
-    }
-
-    /* Dark Mode Styles */
-    body.dark-mode {
-      background-color: #111827;
-      color: #f3f4f6;
-    }
-
-    body.dark-mode .sidebar,
-    body.dark-mode .mobile-header,
-    body.dark-mode .essay-card {
-      background-color: #1f2937;
-      border-color: #374151;
-      color: #f3f4f6;
-    }
-
-    body.dark-mode .menu-item {
-      color: #d1d5db;
-    }
-
-    body.dark-mode .menu-item:hover,
-    body.dark-mode .menu-item.active {
-      background-color: #115e59;
-      color: #ffffff;
-    }
-
-    body.dark-mode .point-card {
-      background-color: #374151;
-      color: #f3f4f6;
-    }
-
-    body.dark-mode .point-header h2,
-    body.dark-mode .breadcrumb,
-    body.dark-mode .point-card p {
-      color: #f3f4f6;
-    }
-
-    body.dark-mode .action-btn {
-      background-color: #374151;
-      color: #f3f4f6;
-      border-color: #4b5563;
-    }
-
-    body.dark-mode .search-box input {
-      background-color: #374151;
-      color: #ffffff;
-      border-color: #4b5563;
-    }
-
-    .app-container {
-      display: flex;
-      min-height: 100vh;
-    }
-
-    /* Mobile Header Bar */
-    .mobile-header {
-      display: none;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 16px;
-      background-color: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky;
-      top: 0;
-      z-index: 40;
-    }
-
-    .hamburger-btn {
-      font-size: 24px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #0d9488;
-    }
-
-    /* Sidebar Navigation */
-    .sidebar {
-      width: 300px;
-      background-color: #ffffff;
-      border-right: 1px solid #e5e7eb;
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
-      height: 100vh;
-      position: sticky;
-      top: 0;
-      overflow-y: auto;
-    }
-
-    .sidebar-header {
-      padding: 16px;
-      border-bottom: 1px solid #f3f4f6;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: bold;
-      font-size: 20px;
-      color: #0d9488;
-      margin-bottom: 12px;
-    }
-
-    .search-box input {
-      width: 100%;
-      padding: 8px 12px;
-      border: 1px solid #d1d5db;
-      border-radius: 6px;
-      outline: none;
-      font-size: 14px;
-    }
-
-    .sidebar-menu {
-      padding: 8px 0;
-    }
-
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 16px;
-      color: #374151;
-      text-decoration: none;
-      font-size: 14px;
-      border-left: 3px solid transparent;
-      cursor: pointer;
-    }
-
-    .menu-item:hover, .menu-item.active {
-      background-color: #ccfbf1;
-      color: #0f766e;
-      border-left-color: #0d9488;
-      font-weight: 600;
-    }
-
-    .badge {
-      background-color: #0d9488;
-      color: white;
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 12px;
-    }
-
-    /* Backdrop Overlay */
-    .overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      z-index: 45;
-    }
-
-    /* Main Content Area */
-    .main-content {
-      flex-grow: 1;
-      padding: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .breadcrumb {
-      font-size: 16px;
-      font-weight: bold;
-      color: #374151;
-    }
-
-    .actions {
-      display: flex;
-      gap: 8px;
-    }
-
-    .action-btn {
-      background: #ffffff;
-      border: 1px solid #d1d5db;
-      padding: 6px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 13px;
-    }
-
-    .print-btn {
-      background: #0d9488;
-      color: white;
-      border: none;
-    }
-
-    /* Essay Content Card */
-    .essay-card {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 8px;
-      padding: 28px;
-    }
-
-    .essay-title {
-      font-size: 28px;
-      color: #0f766e;
-      margin-bottom: 12px;
-    }
-
-    .essay-meta {
-      display: flex;
-      gap: 16px;
-      font-size: 13px;
-      color: #6b7280;
-      margin-bottom: 24px;
-    }
-
-    /* Quotation Styling */
-    .quote-box {
-      background-color: #f0fdf4;
-      border-left: 4px solid #22c55e;
-      padding: 12px 16px;
-      border-radius: 4px;
-      color: #15803d;
-      font-style: italic;
-    }
-
-    .featured-quote {
-      margin-bottom: 24px;
-      font-size: 15px;
-    }
-
-    .section-quote {
-      margin-top: 14px;
-      background-color: #f0fdfa;
-      border-left-color: #0d9488;
-      color: #0f766e;
-    }
-
-    /* Section Cards */
-    .point-card {
-      background: #f9fafb;
-      border-left: 4px solid #0d9488;
-      border-radius: 6px;
-      padding: 16px 20px;
-      margin-bottom: 20px;
-    }
-
-    .point-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .point-badge {
-      background-color: #0d9488;
-      color: white;
-      font-size: 12px;
-      padding: 3px 8px;
-      border-radius: 4px;
-      font-weight: bold;
-    }
-
-    .point-header h2 {
-      font-size: 18px;
-      color: #111827;
-    }
-
-    .point-card p {
-      line-height: 1.7;
-      color: #374151;
-      font-size: 15px;
-    }
-
-    /* Mobile Breakpoint */
-    @media (max-width: 768px) {
-      .mobile-header {
-        display: flex;
-      }
-
-      .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 50;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .sidebar.active {
-        transform: translateX(0);
-      }
-
-      .overlay.active {
-        display: block;
-      }
-
-      .main-content {
-        padding: 16px;
-      }
-
-      .essay-card {
-        padding: 16px;
-      }
-
-      .essay-title {
-        font-size: 22px;
-      }
+    body { font-family: 'Noto Sans Bengali', 'Kalpurush', sans-serif; }
+    @media print {
+      .no-print { display: none !important; }
+      .print-content { width: 100% !important; margin: 0 !important; padding: 0 !important; }
     }
   </style>
 </head>
-<body>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col">
 
-  <!-- Mobile Top Header -->
-  <header class="mobile-header">
-    <button id="menu-toggle" class="hamburger-btn" aria-label="Toggle Menu">☰</button>
-    <div class="logo">
-      <span class="logo-icon">📚</span>
-      <span class="logo-text">রচনা সম্ভার</span>
+  <!-- Header / Navbar -->
+  <header class="bg-emerald-700 text-white shadow-md py-3 px-6 flex justify-between items-center no-print">
+    <div class="flex items-center gap-3">
+      <span class="text-2xl font-bold">রচনা সম্ভার</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button onclick="toggleTheme()" class="bg-emerald-800 hover:bg-emerald-900 text-sm px-3 py-1.5 rounded-md transition flex items-center gap-1">
+        🌙 থিম
+      </button>
+      <button onclick="copyCurrentRochona()" class="bg-emerald-800 hover:bg-emerald-900 text-sm px-3 py-1.5 rounded-md transition flex items-center gap-1">
+        📋 কপি
+      </button>
+      <button onclick="window.print()" class="bg-emerald-800 hover:bg-emerald-900 text-sm px-3 py-1.5 rounded-md transition flex items-center gap-1">
+        🖨️ প্রিন্ট
+      </button>
     </div>
   </header>
 
-  <!-- Background Overlay for Mobile Drawer -->
-  <div id="overlay" class="overlay"></div>
-
-  <div class="app-container">
-    <!-- Sidebar Navigation -->
-    <aside id="sidebar" class="sidebar">
-      <div class="sidebar-header">
-        <div class="logo">
-          <span class="logo-icon">📚</span>
-          <span class="logo-text">রচনা সম্ভার</span>
-        </div>
-        <div class="search-box">
-          <input type="text" id="search-input" placeholder="রচনা বা পয়েন্ট খুঁজুন..." />
-        </div>
+  <!-- Main Layout -->
+  <div class="flex flex-1 overflow-hidden">
+    
+    <!-- Sidebar -->
+    <aside class="w-80 bg-white border-r border-slate-200 flex flex-col no-print h-[calc(100vh-57px)]">
+      <div class="p-4 border-b border-slate-100">
+        <input 
+          type="text" 
+          id="searchInput" 
+          oninput="filterList()" 
+          placeholder="রচনা বা পয়েন্ট খুঁজুন..." 
+          class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500"
+        />
       </div>
-      <nav class="sidebar-menu" id="essay-list">
-        <!-- Dynamic Menu Items -->
-      </nav>
+      <div class="overflow-y-auto flex-1 p-2 space-y-1" id="sidebarList">
+        <!-- Dynamic sidebar links inserted via JS -->
+      </div>
     </aside>
 
     <!-- Main Content Area -->
-    <main class="main-content">
-      <!-- Top Action Bar -->
-      <div class="top-bar">
-        <div class="breadcrumb" id="current-title-breadcrumb">
-          ১. বাংলাদেশের পর্যটন শিল্প
-        </div>
-        <div class="actions">
-          <button class="action-btn" id="theme-btn">🌙 থিম</button>
-          <button class="action-btn" id="copy-btn">📋 কপি</button>
-          <button class="action-btn print-btn" id="print-btn">🖨️ প্রিন্ট</button>
-        </div>
+    <main class="flex-1 overflow-y-auto p-6 md:p-8 print-content">
+      <div class="max-w-4xl mx-auto space-y-6" id="rochonaContainer">
+        <!-- Dynamic Rochona Content inserted via JS -->
       </div>
-
-      <!-- Essay Card -->
-      <article class="essay-card">
-        <h1 class="essay-title" id="essay-title">১. বাংলাদেশের পর্যটন শিল্প</h1>
-        <div class="essay-meta">
-          <span class="meta-item">📌 মোট পয়েন্ট সংখ্যা: <strong id="total-points">১৫ টি</strong></span>
-          <span class="meta-item">📖 রচনা নম্বর: <strong id="essay-number">১</strong></span>
-        </div>
-
-        <!-- Featured Header Quote -->
-        <div class="quote-box featured-quote" id="header-quote">
-          <p>"এমন দেশটি কোথাও খুঁজে পাবে নাকো তুমি, সকল রানীর দেশ সে যে- আমার জন্মভূমি" — <em>দ্বিজেন্দ্রলাল রায়</em></p>
-        </div>
-
-        <!-- Section Points Container -->
-        <div class="points-container" id="points-container">
-          <!-- Dynamic Content Loads Here -->
-        </div>
-      </article>
     </main>
   </div>
 
   <script>
-    // Bangla Digit Converter
-    function toBanglaNum(num) {
-      const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
-      return num.toString().replace(/\d/g, digit => banglaDigits[digit]);
-    }
-
-    // Essay Database
-    const essays = [
+    const rochonaData = [
       {
         id: 1,
-        title: 'বাংলাদেশের পর্যটন শিল্প',
-        headerQuote: '"এমন দেশটি কোথাও খুঁজে পাবে নাকো তুমি, সকল রানীর দেশ সে যে- আমার জন্মভূমি" — <em>দ্বিজেন্দ্রলাল রায়</em>',
+        title: "১. বাংলাদেশের পর্যটন শিল্প",
+        quote: "এমন দেশটি কোথাও খুঁজে পাবে নাকো তুমি, সকল রানীর দেশ সে যে- আমার জন্মভূমি। — দ্বিজেন্দ্রলাল রায়",
         points: [
-          {
-            title: 'সূচনা',
-            content: 'সুজলা-সুফলা, শস্য-শ্যামলা আমাদের এই বাংলাদেশ অপার প্রাকৃতিক সৌন্দর্যের এক অনন্য লীলাভূমি। নদীমাতৃক এই দেশের কোণে কোণে ছড়িয়ে আছে রূপের অপরূপ বৈচিত্র্য, যা আবহমানকাল ধরে দেশি-বিদেশি ভ্রমণপিপাসুদের আকর্ষিত করে আসছে।',
-            quote: '"রূপসী বাংলার রূপ দেখিয়াছি আমি, তাই আমি পৃথিবীর রূপ খুঁজিতে যাই না আর" — <em>জীবনানন্দ দাশ</em>'
-          },
-          {
-            title: 'পর্যটন শিল্পের ধারণা',
-            content: 'পর্যটন মূলত মানুষের নতুনকে জানার, অদেখাকে দেখার এবং মানসিক বিনোদন লাভের একটি সার্বজনীন মাধ্যম। যখন ভ্রমণকে কেন্দ্র করে হোটেল, রেস্তোরাঁ, যাতায়াত ও বিনোদন পার্ক গড়ে ওঠে, তাকে পর্যটন শিল্প বলা হয়।'
-          },
-          {
-            title: 'পরিবেশ ও নিরাপত্তা',
-            content: 'পর্যটন শিল্পের প্রসারের সাথে সাথে প্রাকৃতিক ভারসাম্য রক্ষা ও পর্যটকদের নিরাপত্তা প্রদান অপরিহার্য। পরিবেশ বান্ধব পর্যটন গড়ে তোলার মাধ্যমেই এই শিল্পের টেকসই উন্নয়ন সম্ভব।',
-            quote: '"প্রকৃতিকে ভালোবাসুন, সৌন্দর্য উপভোগ করুন, পরিবেশ রক্ষা করুন!"'
-          }
+          { name: "সূচনা", text: "সুজলা-সুফলা, শস্য-শ্যামলা আমাদের এই বাংলাদেশ অপার প্রাকৃতিক সৌন্দর্যের এক অনন্য লীলাভূমি। নদীমাতৃক এই দেশের কোণে কোণে ছড়িয়ে আছে রূপের অপরূপ বৈচিত্র্য, যা আবহমানকাল ধরে দেশি-বিদেশি ভ্রমণপিপাসুদের আকর্ষিত করে আসছে।" },
+          { name: "পর্যটন শিল্পের ধারণা", text: "পর্যটন মূলত মানুষের নতুনকে জানার, অদেখাকে দেখার এবং মানসিক বিনোদন লাভের একটি সার্বজনীন মাধ্যম। যখন ভ্রমণকে কেন্দ্র করে হোটেল, রেস্তোরাঁ, যাতায়াত, বিনোদন পার্ক এবং গাইড পরিষেবার মতো বিভিন্ন বাণিজ্যিক খাত একসঙ্গে গড়ে ওঠে, তখন তাকে পর্যটন শিল্প বলা হয়।" },
+          { name: "প্রধান পর্যটন কেন্দ্রসমূহ", text: "বাংলাদেশের প্রধান পর্যটন কেন্দ্রগুলোর মধ্যে কক্সবাজারের ১২০ কিলোমিটার দীর্ঘ পৃথিবীর দীর্ঘতম অবিচ্ছিন্ন বালুকাময় সমুদ্রসৈকত অন্যতম। এছাড়া সুন্দরবনের রয়্যাল বেঙ্গল টাইগার, হরিণের পাল ও কাদা-পানির রোমাঞ্চ, বান্দরবানের নীলগিরি ও কেওক্রাডংয়ের মেঘছোঁয়া পাহাড় এবং সিলেটের হাজার একর বিস্তৃত সবুজ চা-বাগান পর্যটকদের মুগ্ধ করে।" },
+          { name: "ঐতিহাসিক ও ঐতিহ্যবাহী স্থান", text: "বগুড়ার মহাস্থানগড়, নওগাঁর পাহাড়পুর বৌদ্ধবিহার, কুমিল্লার ময়নামতি, বাগেরহাটের ষাটগম্বুজ মসজিদ এবং ঢাকার লালবাগ কেল্লা কিংবা সোনারগাঁও পর্যটকদের প্রাচীন বাংলা ও মুসলিম শাসনকালের ইতিহাস ও স্থাপত্যশৈলীর সঙ্গে পরিচয় করিয়ে দেয়।" },
+          { name: "উপসংহার", text: "সব মিলিয়ে বাংলাদেশের পর্যটন শিল্প অপার সম্ভাবনায় পরিপূর্ণ এক অফুরন্ত রত্নভাণ্ডার। সরকারি ও বেসরকারি সমন্বিত প্রচেষ্টা, অবকাঠামোগত উন্নয়ন এবং আধুনিক বিপণন নীতির সঠিক প্রয়োগ নিশ্চিত করা গেলে এই পর্যটন শিল্পই হয়ে উঠতে পারে বাংলাদেশের অর্থনীতির মূল চালিকাশক্তি।" }
         ]
       },
       {
-        id: 2,
-        title: 'বাংলাদেশের উৎসব',
-        headerQuote: '"নানা জাতির নানা মত, নানা পরিধান, বিবিধের মাঝে দেখ মিলন মহান।"'
-      },
-      { id: 3, title: 'জগদীশচন্দ্র বসু' },
-      { id: 4, title: 'রোকেয়া সাখাওয়াত হোসেন' },
-      { id: 5, title: 'লঙ্কা ভ্রমণের অভিজ্ঞতা' },
-      { id: 6, title: 'একটি ঝড়ের রাত' },
-      { id: 7, title: 'কৃষি উদ্যোক্তা' },
-      { id: 8, title: 'ভাষা আন্দোলন' },
-      { id: 9, title: 'বাংলাদেশের মুক্তিযুদ্ধ' },
-      { id: 10, title: 'সময়ানুবর্তিতা' },
-      { id: 11, title: 'ক্রিকেট বাংলাদেশ' },
-      { id: 12, title: 'বাংলাদেশের ফুটবল' },
-      { id: 13, title: 'কৃষিকাজে বিজ্ঞান' },
-      { id: 14, title: 'মাদকাসক্তি ও এর প্রতিকার' }
+        id: 10,
+        title: "১০. সময়ানুবর্তিতা",
+        quote: "সময় ও স্রোত কারো জন্য অপেক্ষা করে না। — প্রচলিত প্রবাদ",
+        points: [
+          { name: "সূচনা", text: "মানবজীবনের সাফল্য ও অগ্রগতির প্রধান চাবিকাঠি হলো সময়ানুবর্তিতা। সময়ের প্রবাহ নিরবচ্ছিন্ন ও অপরিবর্তনীয়। যে ব্যক্তি বা জাতি সময়ের মূল্য বুঝতে পেরে সঠিক সময়ে সঠিক কাজ সম্পন্ন করে, সাফল্য তার পদচুম্বন করে। সময়ানুবর্তিতা কেবল একটি সাধারণ গুণ নয়, এটি জীবনের সুশৃঙ্খল ভিত্তিমূল।" },
+          { name: "সময়ানুবর্তিতার সংজ্ঞা", text: "নির্দিষ্ট কাজ নির্দিষ্ট সময়ে সম্পন্ন করার অভ্যাসকেই সময়ানুবর্তিতা বা সময়নিষ্ঠতা বলা হয়। অন্য কথায়, সময়ের মূল্য অনুধাবন করে অলসতা ত্যাগ করে নির্ধারিত সূচি অনুযায়ী দায়িত্ব পালন করাই হলো সময়ানুবর্তিতা। জীবনের কোনো কাজকে কালকের জন্য ফেলে না রাখার নামই সময়জ্ঞান।" },
+          { name: "মানবজীবনে সময়ের গুরুত্ব", text: "মানুষের জীবনকাল অত্যন্ত সংক্ষিপ্ত ও সীমাবদ্ধ। এই সীমিত সময়ের মধ্যে আমাদের অজস্র কাজ সম্পাদন করতে হয়। চলে যাওয়া সময় হাজার চেষ্টা করলেও আর ফিরিয়ে আনা সম্ভব নয়। তাই জীবনের প্রতিটি মুহূর্তকে সুনির্দিষ্ট কাজের মাধ্যমে কাজে লাগানোই বুদ্ধিমানের কাজ।" },
+          { name: "প্রকৃতির বুকে সময়ানুবর্তিতা", text: "নিখিল প্রকৃতির দিকে তাকালে সময়ানুবর্তিতার অসাধারণ অনুশাসন দেখা যায়। সূর্য নির্দিষ্ট সময়ে উদিত হয় ও অস্ত যায়, ঋতুগুলো যথাসময়ে পরিবর্তিত হয়, জোয়ার-ভাটা নিয়মানুযায়ী ঘটে। প্রকৃতি এক মুহূর্তের জন্যও তার নিয়ম লঙ্ঘন করে না, যা মানুষের জন্য সময়নিষ্ঠতার সবচেয়ে বড় পাঠ।" },
+          { name: "ছাত্রজীবনে সময়ানুবর্তিতা", text: "সময়ানুবর্তিতার অভ্যাস গড়ার উপযুক্ত সময় হলো ছাত্রজীবন। যে শিক্ষার্থী পড়ালেখা, খেলাধুলা ও বিশ্রামের জন্য সঠিক সময়সূচি মেনে চলে, পরীক্ষায় তার সফল হওয়া সুনিশ্চিত। আলসেমি করে পড়াশোনা জমিয়ে রাখলে পরীক্ষার পূর্বে চাপ সৃষ্টি হয় এবং কাঙ্ক্ষিত ফলাফল অর্জন সম্ভব হয় না।" },
+          { name: "সফল ব্যক্তিদের জীবনে সময়ের ব্যবহার", text: "বিশ্বের ইতিহাস পর্যালোচনা করলে দেখা যায়, সব সফল ব্যক্তিই ছিলেন সময়ের ব্যাপারে অত্যন্ত কঠোর ও সচেতন। উইনস্টন চার্চিল, আলবার্ট আইনস্টাইন কিংবা নেপোলিয়ন বোনাপার্ট—তাঁদের জীবনের সাফল্য এসেছে সময়ের সঠিক সদ্ব্যবহারের মাধ্যমে। সময়নিষ্ঠতা তাঁদের সাধারণ থেকে অসাধারণে পরিণত করেছিল।" },
+          { name: "সময়ের অপচয়ের পরিণতি", text: "সময়ের অপচয় মানবজীবনের সবচেয়ে বড় অপরাধের একটি। আজ কাজ না করে ভবিষ্যতের জন্য ফেলে রাখলে কাজের পাহাড় জমে যায়। শেষ মুহূর্তে তাড়াহুড়ো করতে গিয়ে কাজের মান নষ্ট হয় এবং ব্যর্থতার গ্লানি নিয়ে জীবন কাটাতে হয়, যা জীবনে চরম হতাশা নিয়ে আসে।" },
+          { name: "অলসতার অপকারিতা", text: "অলসতা সময়ানুবর্তিতার সবচেয়ে বড় শত্রু। অলস ব্যক্তি কেবল সময়ের অপচয়ই করে না, বরং নিজের জীবনের সম্ভাবনাগুলোকে নিজ হাতে ধ্বংস করে। 'সময়ের এক ফোড়, অসময়ের দশ ফোড়'—এই প্রবাদটি মনে করিয়ে দেয় যে আলসেমি করে সময় নষ্ট করলে পরবর্তীতে বহু কষ্টে তা আর পূরণ করা যায় না।" },
+          { name: "কর্মক্ষেত্রে সময়নিষ্ঠতার প্রভাব", text: "পেশাগত জীবনে সময়ানুবর্তিতা একজন ব্যক্তির পেশাদারিত্ব ও দায়িত্বশীলতার পরিচয় বহন করে। সময়ে অফিসে উপস্থিত হওয়া, নির্ধারিত ডেডলাইনের মধ্যে কাজ শেষ করা কর্মক্ষেত্রে ব্যক্তির গ্রহণযোগ্যতা ও পদোন্নতি নিশ্চিত করে এবং প্রতিষ্ঠানের সামগ্রিক উৎপাদনশীলতা বৃদ্ধি করে।" },
+          { name: "জাতীয় জীবনে সময়ানুবর্তিতা", text: "একটি জাতির সামগ্রিক প্রগতির পেছনে সময়ানুবর্তিতার ভূমিকা অপরিসীম। জাপানের মতো উন্নত জাতিগুলোর উন্নতির মূল রহস্য হলো তাদের নাগরিকদের চরম সময়নিষ্ঠতা। সময়মতো ট্রেন চলা থেকে শুরু করে সরকারি দপ্তর পরিচালনা—সবক্ষেত্রে সময় মেনে চলার অভ্যাসই তাদের বিশ্বমঞ্চে শীর্ষে নিয়ে গেছে।" },
+          { name: "সময় ব্যবস্থাপনার কৌশল", text: "সঠিক সময় ব্যবস্থাপনার (Time Management) জন্য প্রতিদিনের কাজের অগ্রাধিকার তালিকা (To-Do List) তৈরি করা উচিত। গুরুত্বপূর্ণ কাজগুলো আগে শেষ করা এবং অনাবশ্যক কাজে সময় নষ্ট না করার মানসিকতা গড়ে তুলতে হবে।" },
+          { name: "ব্যক্তিত্ব গঠনে সময়ানুবর্তিতা", text: "যে ব্যক্তি সময়নিষ্ঠ, সমাজে সে পরম শ্রদ্ধার পাত্র। সময়ানুবর্তিতা মানুষের আত্মবিশ্বাস বৃদ্ধি করে এবং মনে প্রশান্তি এনে দেয়। প্রতিশ্রুতি রক্ষা করা এবং নির্ধারিত সময়ে উপস্থিত হওয়ার অভ্যাস একজন মানুষকে মার্জিত, রুচিশীল ও নির্ভরযোগ্য ব্যক্তিত্ব হিসেবে সমাজে প্রতিষ্ঠিত করে।" },
+          { name: "চরিত্র গঠনে ভূমিকা", text: "সময়ানুবর্তিতা মানুষের চরিত্রে শৃঙ্খলা, নিয়মকানুন ও দায়িত্ববোধের জন্ম দেয়। এটি মানুষকে মিথ্যাচার ও ফাঁকিবাজি থেকে দূরে রাখে। চারিত্রিক সততা ও দৃঢ়তা বজায় রাখতে সময়ানুবর্তিতার অনুশীলন এক জাদুকরী ভূমিকা পালন করে।" },
+          { name: "উপসংহার", text: "সময় কারও আদেশের তোয়াক্কা করে না, সে তার নিজস্ব গতিতে ধাবমান। তাই সফল ও সুন্দর জীবন গড়ে তুলতে হলে শৈশব থেকেই সময়ানুবর্তিতার অনুশীলন উচিত। সময়ের সঠিক মূল্যায়ন করে আমরা যেন আমাদের জীবন ও জাতীয় জীবনকে সাফল্যের আলোয় আলোকিত করতে পারি—এটাই হওয়া উচিত আমাদের একমাত্র ব্রত।" }
+        ]
+      }
     ];
 
-    let activeEssayId = 1;
+    let activeIndex = 1; // Default to index 1 (Topic 10: সময়ানুবর্তিতা)
 
-    // Load Essay Content
-    function loadEssay(id) {
-      activeEssayId = id;
-      const essay = essays.find(e => e.id === id) || essays[0];
-      const banglaId = toBanglaNum(essay.id);
-
-      document.getElementById('essay-title').innerText = `${banglaId}. ${essay.title}`;
-      document.getElementById('current-title-breadcrumb').innerText = `${banglaId}. ${essay.title}`;
-      document.getElementById('essay-number').innerText = banglaId;
+    function renderSidebar() {
+      const listContainer = document.getElementById("sidebarList");
+      listContainer.innerHTML = "";
       
-      const pointCount = essay.points ? essay.points.length : 15;
-      document.getElementById('total-points').innerText = `${toBanglaNum(pointCount)} টি`;
-
-      document.getElementById('header-quote').innerHTML = `<p>${essay.headerQuote || '"জ্ঞানই শক্তি"'}</p>`;
-
-      const pointsContainer = document.getElementById('points-container');
-      if (essay.points && essay.points.length > 0) {
-        pointsContainer.innerHTML = essay.points.map((p, index) => `
-          <section class="point-card">
-            <div class="point-header">
-              <span class="point-badge">পয়েন্ট ${toBanglaNum(index + 1)}</span>
-              <h2>${p.title}</h2>
-            </div>
-            <p>${p.content}</p>
-            ${p.quote ? `<div class="quote-box section-quote"><p>${p.quote}</p></div>` : ''}
-          </section>
-        `).join('');
-      } else {
-        pointsContainer.innerHTML = `
-          <section class="point-card">
-            <div class="point-header">
-              <span class="point-badge">পয়েন্ট ১</span>
-              <h2>সূচনা</h2>
-            </div>
-            <p>${essay.title} সম্পর্কিত বিস্তারিত মূল বিষয়বস্তু শীঘ্রই হালনাগাদ করা হবে।</p>
-          </section>
+      rochonaData.forEach((item, index) => {
+        const isActive = index === activeIndex;
+        const btn = document.createElement("button");
+        btn.onclick = () => selectRochona(index);
+        btn.className = `w-full text-left px-3 py-2.5 rounded-lg text-sm flex justify-between items-center transition ${
+          isActive 
+            ? "bg-emerald-50 text-emerald-800 font-semibold border-l-4 border-emerald-600" 
+            : "hover:bg-slate-50 text-slate-700"
+        }`;
+        
+        btn.innerHTML = `
+          <span class="truncate">${item.title}</span>
+          <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-medium ml-2">${item.points.length} পয়েন্ট</span>
         `;
-      }
-
-      renderSidebar();
-    }
-
-    // Render Sidebar Menu
-    function renderSidebar(filterText = '') {
-      const sidebarMenu = document.getElementById('essay-list');
-      if (!sidebarMenu) return;
-
-      const filteredEssays = essays.filter(e => e.title.includes(filterText));
-
-      sidebarMenu.innerHTML = filteredEssays.map((essay) => {
-        const banglaIndex = toBanglaNum(essay.id);
-        const pointCount = essay.points ? essay.points.length : 15;
-        const banglaPoints = toBanglaNum(pointCount);
-        const isActive = essay.id === activeEssayId ? 'active' : '';
-
-        return `
-          <div class="menu-item ${isActive}" onclick="selectEssay(${essay.id})">
-            <span>${banglaIndex}. ${essay.title}</span>
-            <span class="badge">${banglaPoints} পয়েন্ট</span>
-          </div>
-        `;
-      }).join('');
-    }
-
-    function selectEssay(id) {
-      loadEssay(id);
-      closeMobileSidebar();
-    }
-
-    // Mobile Navigation Controls
-    const menuToggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-
-    function toggleSidebar() {
-      sidebar.classList.toggle('active');
-      overlay.classList.toggle('active');
-    }
-
-    function closeMobileSidebar() {
-      if (window.innerWidth <= 768) {
-        sidebar.classList.remove('active');
-        overlay.classList.remove('active');
-      }
-    }
-
-    menuToggle.addEventListener('click', toggleSidebar);
-    overlay.addEventListener('click', toggleSidebar);
-
-    // Dark Mode Toggle
-    document.getElementById('theme-btn').addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-    });
-
-    // Copy Content Button
-    document.getElementById('copy-btn').addEventListener('click', () => {
-      const text = document.querySelector('.essay-card').innerText;
-      navigator.clipboard.writeText(text).then(() => {
-        alert('লেখা কপি হয়েছে!');
+        listContainer.appendChild(btn);
       });
-    });
+    }
 
-    // Print Button
-    document.getElementById('print-btn').addEventListener('click', () => {
-      window.print();
-    });
+    function renderContent() {
+      const container = document.getElementById("rochonaContainer");
+      const current = rochonaData[activeIndex];
 
-    // Search Filtering
-    document.getElementById('search-input').addEventListener('input', (e) => {
-      renderSidebar(e.target.value);
-    });
+      if (!current) return;
 
-    // Initialize Page
-    document.addEventListener('DOMContentLoaded', () => {
-      loadEssay(1);
-    });
+      let pointsHtml = current.points.map((p, idx) => `
+        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm space-y-2">
+          <div class="flex items-center gap-2">
+            <span class="bg-emerald-600 text-white text-xs font-bold px-2.5 py-1 rounded-md">পয়েন্ট ${idx + 1}</span>
+            <h3 class="text-lg font-bold text-slate-800">${p.name}</h3>
+          </div>
+          <p class="text-slate-700 leading-relaxed text-justify">${p.text}</p>
+        </div>
+      `).join("");
+
+      container.innerHTML = `
+        <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-3">
+          <h1 class="text-2xl font-bold text-emerald-800">${current.title}</h1>
+          <div class="flex gap-4 text-xs text-slate-500 font-medium">
+            <span>📌 মোট পয়েন্ট সংখ্যা: ${current.points.length} টি</span>
+            <span>📖 রচনা নম্বর: ${current.id}</span>
+          </div>
+          ${current.quote ? `<div class="bg-emerald-50 border-l-4 border-emerald-500 p-3 rounded-r-md text-emerald-900 text-sm italic font-medium">"${current.quote}"</div>` : ''}
+        </div>
+        <div class="space-y-4">
+          ${pointsHtml}
+        </div>
+      `;
+    }
+
+    function selectRochona(index) {
+      activeIndex = index;
+      renderSidebar();
+      renderContent();
+    }
+
+    function filterList() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const buttons = document.querySelectorAll("#sidebarList button");
+      buttons.forEach((btn, idx) => {
+        const title = rochonaData[idx].title.toLowerCase();
+        btn.style.display = title.includes(query) ? "flex" : "none";
+      });
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("bg-slate-900");
+      document.body.classList.toggle("text-slate-100");
+    }
+
+    function copyCurrentRochona() {
+      const current = rochonaData[activeIndex];
+      let fullText = `${current.title}\n\n`;
+      if (current.quote) fullText += `"${current.quote}"\n\n`;
+      current.points.forEach((p, idx) => {
+        fullText += `পয়েন্ট ${idx + 1}: ${p.name}\n${p.text}\n\n`;
+      });
+      navigator.clipboard.writeText(fullText);
+      alert("রচনা সফলভাবে কপি করা হয়েছে!");
+    }
+
+    // Initialize App
+    renderSidebar();
+    renderContent();
   </script>
 </body>
 </html>
